@@ -29,4 +29,12 @@ Route::name('sig.')->group(function () {
     Route::get('/elements', function () {
         return view('pages/general_elements', ['title' => 'Elements']);
     })->name('elements');
+
+    Route::get('/tables', function () {
+        return view('pages/tables', ['title' => 'Tables']);
+    })->name('tables');
+
+    Route::get('/tables-dynamic', function () {
+        return view('pages/tables_dynamic', ['title' => 'Tables Dynamic']);
+    })->name('tables-dynamic');
 });

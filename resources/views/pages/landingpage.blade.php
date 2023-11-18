@@ -46,27 +46,25 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Jumlah Wisata</p>
+                            <span>Jumlah</span>
+                            {{-- <p>Lorem</p> --}}
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $jumlah_wisata }}" data-purecounter-duration="1"
                                 class="purecounter"></span>
-                            <p>Projects</p>
+                            {{-- <p>Jumlah Wisata</p> --}}
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-headset"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Hours Of Support</p>
+                            <span>Wisata</span>
+                            {{-- <p>Hours Of Support</p> --}}
                         </div>
                     </div>
 
@@ -123,15 +121,14 @@
                                           <tr>
                                               <td class="table-col">{{ $item->nama }}</td>
                                               <td class="table-col">{{ $item->alamat }}</td>
-                                              <td class="table-col">{{ $item->harga }}</td>
+                                              <td class="table-col">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                               <td class="table-col">{{ $item->fasilitas }}</td>
-                                              <td class="aksi-col">
+                                              <td>
                                                 <button type="button" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></button>
                                               </td>
                                           </tr>
                                       @endforeach
                                       </tbody>
-                                      {{ $wisata->links() }}
                                   </table>
                               </div>
                           </div>
@@ -395,4 +392,5 @@
         </section><!-- End Team Section -->
 
     </main><!-- End #main -->
+  {{ $wisata->links() }}
 @endsection

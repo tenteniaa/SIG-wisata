@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('sig.')->group(function () {
-    Route::get('/', function () {
+Route::name('dashboard.')->group(function () {
+    Route::get('/dashboard', function () {
         return view('pages/dashboard', ['title' => 'Sistem Informasi Geografis']);
     })->name('dashboard');
 
@@ -37,4 +37,10 @@ Route::name('sig.')->group(function () {
     Route::get('/tables-dynamic', function () {
         return view('pages/tables_dynamic', ['title' => 'Tables Dynamic']);
     })->name('tables-dynamic');
+});
+
+Route::name('landing.')->group(function () {
+    Route::get('/', function () {
+        return view('pages/landingpage', ['title' => 'Sistem Informasi Geografis']);
+    })->name('home');
 });

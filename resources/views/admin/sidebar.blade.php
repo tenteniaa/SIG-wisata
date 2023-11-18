@@ -8,7 +8,7 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
       <div class="profile_pic">
-        <img src="{{ asset('assets/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+        <img src="{{ asset('assets/images/dashboard/img.jpg') }}" alt="..." class="img-circle profile_img">
       </div>
       <div class="profile_info">
         <span>Welcome,</span>
@@ -24,14 +24,14 @@
         <ul class="nav side-menu">
           <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{ route('sig.dashboard') }}">Dashboard</a></li>
-              <li><a href="{{ route('sig.dashboard2') }}">Dashboard2</a></li>
+              <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
+              <li><a href="{{ route('dashboard.dashboard2') }}">Dashboard2</a></li>
               <li><a href="index3.html">Dashboard3</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{ route('sig.form') }}">General Form</a></li>
+              <li><a href="{{ route('dashboard.form') }}">General Form</a></li>
               <li><a href="form_advanced.html">Advanced Components</a></li>
               <li><a href="form_validation.html">Form Validation</a></li>
               <li><a href="form_wizards.html">Form Wizard</a></li>
@@ -41,7 +41,7 @@
           </li>
           <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{ route('sig.elements') }}">General Elements</a></li>
+              <li><a href="{{ route('dashboard.elements') }}">General Elements</a></li>
               <li><a href="media_gallery.html">Media Gallery</a></li>
               <li><a href="typography.html">Typography</a></li>
               <li><a href="icons.html">Icons</a></li>
@@ -54,8 +54,8 @@
           </li>
           <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{ route('sig.tables') }}">Tables</a></li>
-              <li><a href="{{ route('sig.tables-dynamic') }}">Table Dynamic</a></li>
+              <li><a href="{{ route('dashboard.tables') }}">Tables</a></li>
+              <li><a href="{{ route('dashboard.tables-dynamic') }}">Table Dynamic</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>

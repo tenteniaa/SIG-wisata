@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id('id_wisata');
             $table->string('nama');
             $table->string('alamat');
-            $table->string('deskripsi');
-            $table->string('harga');
+            $table->text('deskripsi')->nullable();
+            $table->integer('harga');
             $table->string('fasilitas');
-            $table->string('sosmed');
+            $table->string('sosmed')->nullable();
             $table->string('latitude');
             $table->string('longitude');
             $table->timestamps();

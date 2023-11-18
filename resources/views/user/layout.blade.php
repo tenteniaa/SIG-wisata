@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <!-- Font Awesome -->
+  <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    
   <!-- Vendor CSS Files -->
   <link href="{{ asset('assets/vendors/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -24,6 +26,11 @@
   <link href="{{ asset('assets/vendors/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendors/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendors/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Datatables -->
+  <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+    
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/landingpage.css') }}" rel="stylesheet">
@@ -49,6 +56,12 @@
   <script src="{{ asset('assets/vendors/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/php-email-form/validate.js') }}"></script>
+  <!-- jQuery -->
+  <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+  <!-- Datatables -->
+  <script src="{{ asset('assets/vendors/tables/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/tables/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('assets/js/datatable-basic.init.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>

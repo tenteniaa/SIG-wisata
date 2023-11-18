@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,8 @@ Route::name('dashboard.')->group(function () {
 });
 
 Route::name('landing.')->group(function () {
-    Route::get('/', function () {
-        return view('pages/landingpage', ['title' => 'Sistem Informasi Geografis']);
-    })->name('home');
+    // Route::get('/', function () {
+    //     return view('pages/landingpage', ['title' => 'Sistem Informasi Geografis']);
+    // })->name('home');
+    Route::get('/', [WisataController::class, 'index'])->name('home');
 });

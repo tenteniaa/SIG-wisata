@@ -113,44 +113,25 @@
                                           <tr>
                                               <th>Nama</th>
                                               <th>Alamat</th>
-                                              <th>Deskripsi</th>
                                               <th>Harga</th>
                                               <th>Fasilitas</th>
-                                              <th>Sosmed</th>
                                               <th>Aksi</th>
                                           </tr>
                                       </thead>
                                       <tbody>
+                                      @foreach($wisata as $item)
                                           <tr>
-                                              <td>Tiger Nixon</td>
-                                              <td>System Architect</td>
-                                              <td>Edinburgh</td>
-                                              <td>61</td>
-                                              <td>2011/04/25</td>
-                                              <td>$320,800</td>
-                                              <td>Klik</td>
+                                              <td class="table-col">{{ $item->nama }}</td>
+                                              <td class="table-col">{{ $item->alamat }}</td>
+                                              <td class="table-col">{{ $item->harga }}</td>
+                                              <td class="table-col">{{ $item->fasilitas }}</td>
+                                              <td class="aksi-col">
+                                                <button type="button" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></button>
+                                              </td>
                                           </tr>
-                                          <tr>
-                                              <td>Garrett Winters</td>
-                                              <td>Accountant</td>
-                                              <td>Tokyo</td>
-                                              <td>63</td>
-                                              <td>2011/07/25</td>
-                                              <td>$170,750</td>
-                                              <td>Klik</td>
-                                          </tr>
+                                      @endforeach
                                       </tbody>
-                                      <tfoot>
-                                          <tr>
-                                              <th>Nama</th>
-                                              <th>Alamat</th>
-                                              <th>Deskripsi</th>
-                                              <th>Harga</th>
-                                              <th>Fasilitas</th>
-                                              <th>Sosmed</th>
-                                              <th>Aksi</th>
-                                          </tr>
-                                      </tfoot>
+                                      {{ $wisata->links() }}
                                   </table>
                               </div>
                           </div>

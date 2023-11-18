@@ -1535,3 +1535,32 @@ section {
 .page-link.disabled, .disabled > .page-link {
   color: #6c757d;
 }
+
+/* Button */
+.btn-rounded {
+  border-radius: 5px;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #5f76e8;
+  --bs-btn-border-color: #5f76e8;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #5164c5;
+  --bs-btn-hover-border-color: #4c5eba;
+  --bs-btn-focus-shadow-rgb: 119, 139, 235;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #4c5eba;
+  --bs-btn-active-border-color: #4759ae;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #5f76e8;
+  --bs-btn-disabled-border-color: #5f76e8;
+}
+
+.table-col {
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

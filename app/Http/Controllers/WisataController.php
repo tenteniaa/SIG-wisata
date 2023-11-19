@@ -17,9 +17,11 @@ class WisataController extends Controller
         return view('pages.landingpage', compact('title', 'wisata', 'jumlah_wisata'));
     }
 
-    public function show($id)
+    public function detail($id)
     {
+        $title = 'Detail Wisata';
         $wisata = Wisata::find($id);
-        return view('pages.detail')->with('wisata', $wisata);
+        
+        return view('pages.detail', compact('title', 'wisata'));
     }
 }

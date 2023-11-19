@@ -88,7 +88,7 @@
                         <img src="{{ asset('assets/images/landingpage/details-4.png') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                        <div class="maps__container">
+                        <div id="map" class="maps__container">
                             {{-- OpenStreetMaps --}}
                         </div>
                     </div>
@@ -96,7 +96,7 @@
 
                 <div class="row content">
                   <div class="col-md-12 col-sm-12">
-                      <div class="x_panel">
+                      <div class="x_panel" data-aos="fade-up">
                           <div class="x_title">
                             <h2>Daftar Tempat Wisata</h2>
                             <div class="nav navbar-right panel_toolbox">
@@ -245,9 +245,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                    rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.
+                                    Sistem Informasi Geografis adalah peta yang hidup.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -257,9 +255,8 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.
+                                    Peta bukan hanya gambar, tapi jendela ke dunia. 
+                                    SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -269,8 +266,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
-                                    duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                    SIG menghadirkan dimensi baru dalam pengambilan keputusan dengan memberikan konteks lokasi pada setiap data.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -280,9 +276,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
-                                    minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore
-                                    labore illum veniam.
+                                    Dalam era SIG, lokasi bukan lagi sekadar koordinat, tetapi kisah yang mengungkap rahasia dunia.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -292,9 +286,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                    veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                    culpa fore nisi cillum quid.
+                                    SIG: Mengubah data geografis menjadi keputusan yang cerdas.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -392,5 +384,4 @@
         </section><!-- End Team Section -->
 
     </main><!-- End #main -->
-  {{ $wisata->links() }}
 @endsection

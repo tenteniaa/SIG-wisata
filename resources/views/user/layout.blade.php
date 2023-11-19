@@ -30,7 +30,9 @@
   <!-- Datatables -->
   <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
-    
+  
+  <!-- Leaflet -->
+  <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/landingpage.css') }}" rel="stylesheet">
@@ -63,8 +65,27 @@
   <script src="{{ asset('assets/vendors/tables/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
   <script src="{{ asset('assets/js/datatable-basic.init.js') }}"></script>
 
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>
+
+  <script>
+    var map = L.map('map').setView([-6.98403, 110.40956], 10); // Set default view
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+  
+    // Loop through each Wisata data and add a marker to the map
+    @foreach($wisata as $item)
+        L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
+            .addTo(map)
+            .bindPopup("{{ $item->nama }}");
+            console.log("Added marker for {{ $item->nama }}");
+    @endforeach
+  </script>
 
 </body>
 

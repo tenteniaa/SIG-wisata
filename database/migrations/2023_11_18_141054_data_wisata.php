@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->text('deskripsi')->nullable();
             $table->integer('harga');
+            $table->text('keterangan')->nullable();
             $table->string('fasilitas');
             $table->string('sosmed')->nullable();
             $table->string('latitude');

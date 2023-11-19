@@ -40,9 +40,7 @@ Route::name('dashboard.')->group(function () {
     })->name('tables-dynamic');
 });
 
-Route::name('landing.')->group(function () {
-    // Route::get('/', function () {
-    //     return view('pages/landingpage', ['title' => 'Sistem Informasi Geografis']);
-    // })->name('home');
+Route::name('wisata.')->group(function () {
     Route::get('/', [WisataController::class, 'index'])->name('home');
+    Route::get('/wisata-detail/{id}', [WisataController::class, 'detail'])->name('detail');
 });

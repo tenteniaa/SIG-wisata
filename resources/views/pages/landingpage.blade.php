@@ -124,7 +124,7 @@
                                               <td class="table-col">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                               <td class="table-col">{{ $item->fasilitas }}</td>
                                               <td>
-                                                <button type="button" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></button>
+                                                <a href="{{route('wisata.detail', $item->id_wisata)}}" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></a>
                                               </td>
                                           </tr>
                                       @endforeach

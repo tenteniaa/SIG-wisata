@@ -70,12 +70,13 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>
+  <script src="{{ asset('assets/js/toolbox.js') }}"></script>
 
   <script>
     var map = L.map('map').setView([-6.98403, 110.40956], 10); // Set default view
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        attribution: '© OpenStreetMap'
     }).addTo(map);
   
     // Loop through each Wisata data and add a marker to the map

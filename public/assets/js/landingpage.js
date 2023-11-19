@@ -1,10 +1,3 @@
-/**
-* Template Name: Bootslander
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
@@ -184,6 +177,23 @@
   });
 
   /**
+   * Portfolio details slider
+   */
+   new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
    * Testimonials slider
    */
   new Swiper('.testimonials-slider', {
@@ -219,31 +229,3 @@
   new PureCounter();
 
 })()
-
-// Panel toolbox
-$(document).ready(function () {
-  $('.collapse-link').on('click', function () {
-      var $BOX_PANEL = $(this).closest('.x_panel'),
-          $ICON = $(this).find('i'),
-          $BOX_CONTENT = $BOX_PANEL.find('.x_content');
-
-      // fix for some div with hardcoded fix class
-      if ($BOX_PANEL.attr('style')) {
-          $BOX_CONTENT.slideToggle(200, function () {
-              $BOX_PANEL.removeAttr('style');
-          });
-      } else {
-          $BOX_CONTENT.slideToggle(200);
-          $BOX_PANEL.css('height', 'auto');
-      }
-
-      $ICON.toggleClass('fa-chevron-up fa-chevron-down');
-  });
-
-  $('.close-link').click(function () {
-      var $BOX_PANEL = $(this).closest('.x_panel');
-
-      $BOX_PANEL.remove();
-  });
-});
-// /Panel toolbox

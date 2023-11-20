@@ -128,18 +128,24 @@ h6 {
   height: 60px;
 }
 
-#header .logo h1 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
+#header .logo span {
+  margin: 0 10px;
+  font-size: 23px;
+  font-weight: lighter;
+  letter-spacing: 10px;
+  font-family: 'EB Garamond', serif;
 }
 
-#header .logo h1 a,
-#header .logo h1 a:hover {
+#header .logo span {
   color: #fff;
   text-decoration: none;
+}
+
+#header .logo span::before,
+#header .logo span::after {
+  content: '\2022';
+  color: #8ecffa;
+  padding: 0 5px;
 }
 
 #header .logo img {

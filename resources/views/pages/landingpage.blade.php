@@ -12,15 +12,15 @@
 
                     <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
                         data-aos="fade-left">
-                        <h3>GeoTour</h3>
-                        <p>GeoTour adalah inovasi terkini dalam memanfaatkan teknologi Sistem Informasi Geografis
+                        <h3>ToeJoe</h3>
+                        <p>ToeJoe adalah inovasi terkini dalam memanfaatkan teknologi Sistem Informasi Geografis
                             untuk memperkaya pengalaman wisata Anda. Dengan fokus pada destinasi pariwisata,
-                            GeoTour Explorer menyajikan pendekatan yang holistik, menggabungkan kekayaan data geografis
+                            ToeJoe menyajikan pendekatan yang holistik, menggabungkan kekayaan data geografis
                             dengan informasi detail tentang tempat-tempat menarik.</p>
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                             <div class="icon"><i class="bx bxs-landmark"></i></div>
                             <h4 class="title"><a href="#">Memperkaya Pengalaman Pariwisata</a></h4>
-                            <p class="description">GeoTour tidak hanya memberikan informasi lokasi, tetapi juga memperkaya
+                            <p class="description">ToeJoe tidak hanya memberikan informasi lokasi, tetapi juga memperkaya
                                 pengalaman wisata dengan menyuguhkan informasi yang detail.</p>
                         </div>
 

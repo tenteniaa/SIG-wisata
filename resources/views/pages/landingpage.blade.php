@@ -318,10 +318,9 @@
                                 <h4>Tenia Febrianti</h4>
                                 <span>Chief Executive Officer</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/teniafebrianti/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://tenteniaa.netlify.app/" target="_blank"><i class="bi bi-link"></i></a>
+                                    <a href="https://github.com/tenteniaa/" target="_blank"><i class="bi bi-github"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -329,14 +328,12 @@
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/team-2.jpg') }}"
+                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/sabrina.jpg') }}"
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
+                                <h4>Sabrina Desy Rahmawati</h4>
                                 <span>Product Manager</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
                                     <a href=""><i class="bi bi-instagram"></i></a>
                                     <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
@@ -352,8 +349,6 @@
                                 <h4>William Anderson</h4>
                                 <span>CTO</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
                                     <a href=""><i class="bi bi-instagram"></i></a>
                                     <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
@@ -369,8 +364,6 @@
                                 <h4>Amanda Jepson</h4>
                                 <span>Accountant</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
                                     <a href=""><i class="bi bi-instagram"></i></a>
                                     <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>

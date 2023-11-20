@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/images/landingpage/favicon.png') }}" rel="icon">
-  <link href="{{ asset('assets/images/landingpage/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('assets/images/logo.png') }}" rel="icon"/>
+  <link href="{{ asset('assets/images/logo.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -38,9 +38,10 @@
       <div class="container d-flex align-items-center justify-content-between">
       
         <div class="logo">
-          <h1><a href="/"><span>Kelompok 7</span></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <a href="/">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="" class="img-fluid">
+                <span>TOEJOE</span>
+            </a>
         </div>
       
         <nav id="navbar" class="navbar">
@@ -113,7 +114,20 @@
               <ul>
                 <li><strong>Alamat</strong>: {{ $wisata->alamat }}</li>
                 <li><strong>Harga </strong>(mulai dari) : Rp {{ number_format($wisata->harga, 0, ',', '.') }}</li>
-                <li><strong>Sosial Media</strong>: <a href="{{ $wisata->sosmed }}" class="btn btn-sosmed btn-primary"><i class="fa fa-globe"></i> Kunjungi</a></li>
+                <li><strong>Kontak</strong>: 
+                    @if($wisata->contact)
+                        {{ $wisata->contact }}
+                    @else
+                        —
+                    @endif
+                </li>
+                <li><strong>Sosial Media</strong>: 
+                    @if($wisata->sosmed)
+                    <a href="{{ $wisata->sosmed }}" target="_blank" class="btn btn-sosmed btn-primary"><i class="fa fa-globe"></i> Kunjungi</a>
+                    @else
+                        —
+                    @endif
+                </li>
               </ul>
             </div>
             <div class="portfolio-info">
@@ -136,7 +150,7 @@
                         @endforeach
                     </ul>
                 @else
-                    Tidak ada fasilitas yang tersedia.
+                    —
                 @endif
               </p>
             </div>
@@ -168,14 +182,14 @@
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>
 
   <script>
-    var map = L.map('map').setView([-6.98403, 110.40956], 10); // Set default view
+    var latitude = {{ $wisata->latitude }};
+    var longitude = {{ $wisata->longitude }};
+
+    var map = L.map('map').setView([latitude, longitude], 14);
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
     }).addTo(map);
-  
-    var latitude = {{ $wisata->latitude }};
-    var longitude = {{ $wisata->longitude }};
 
     L.marker([latitude, longitude])
         .addTo(map)

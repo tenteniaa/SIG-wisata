@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 
@@ -13,6 +14,9 @@ use App\Http\Controllers\WisataController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+})->middleware('auth'); 
 
 Route::name('dashboard.')->group(function () {
     Route::get('/dashboard', function () {
@@ -44,3 +48,14 @@ Route::name('wisata.')->group(function () {
     Route::get('/', [WisataController::class, 'index'])->name('home');
     Route::get('/wisata-detail/{id}', [WisataController::class, 'detail'])->name('detail');
 });
+
+// Login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+
+// Register
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store'])->name('store');
+
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

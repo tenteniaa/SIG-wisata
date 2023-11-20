@@ -16,7 +16,7 @@
           <li><a class="nav-link scrollto" href="#discover">Discover</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <a class="btn-login scrollto" href="{{ route('dashboard.dashboard') }}">Login</a>
+          <a class="btn-login scrollto" href="{{ route('login') }}">Login</a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- navbar -->

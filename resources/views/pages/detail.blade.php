@@ -66,7 +66,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Detail Wisata</h2>
+          <h2>Detail Wisata — <span>{{ $wisata->nama }}</span></h2>
           <ol>
             <li><a href="/">Home</a></li>
             <li><a href="/#discover">Daftar Wisata</a></li>
@@ -191,10 +191,11 @@
         attribution: '© OpenStreetMap'
     }).addTo(map);
 
+    var popupContent = @json(view('pages.popup-detail', ['wisata' => $wisata])->render());
     L.marker([latitude, longitude])
         .addTo(map)
-        .bindPopup("{{ $wisata->nama }}");
-        console.log(@json($wisata))
+        .bindPopup(popupContent);
+        // console.log(@json($wisata))
   </script>
 
 </body>

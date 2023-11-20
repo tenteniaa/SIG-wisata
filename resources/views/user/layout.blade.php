@@ -81,10 +81,11 @@
   
     // Loop through each Wisata data and add a marker to the map
     @foreach($wisata as $item)
+        var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
         L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
             .addTo(map)
-            .bindPopup("{{ $item->nama }}");
-            console.log("Added marker for {{ $item->nama }}");
+            .bindPopup(popupContent);
+            // console.log("Added marker for {{ $item->nama }}");
     @endforeach
   </script>
 

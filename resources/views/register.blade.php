@@ -39,8 +39,8 @@
 <main class="form-signin">
   <form action="{{ route('register') }}" method="POST">
       @csrf
-      <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="68" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="name@example.com">
@@ -84,8 +84,8 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; Kelompok 7 -2023</p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+    <p class="mt-5 mb-3">&copy; Kelompok 7 - 2023</p>
   </form>
 </main>
 

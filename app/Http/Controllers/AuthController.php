@@ -50,7 +50,7 @@ class AuthController extends Controller
         $data = $request->except('confirm-password', 'password');
         $data['password'] = Hash::make($request->password);
         User::create($data);
-        return redirect('/password');
+        return redirect('/login');
     }
 
     public function logout(Request $request)

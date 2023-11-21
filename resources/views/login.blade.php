@@ -39,7 +39,7 @@
 <main class="form-signin">
   <form action="{{ route('authenticate') }}" method="POST">
       @csrf
-    <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="72" height="57">
+    <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="68" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
@@ -66,8 +66,9 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" href="{{route('dashboard.dashboard')}} type="submit>Sign in </button>
-    <p class="mt-5 mb-3 text-muted">&copy; Kelompok 7 - 2023</p>
+    <button class="w-100 btn btn-lg btn-primary" href="{{route('dashboard.dashboard')}}" type="submit">Sign in</button>
+    <h4 class="mt-3">Don't have an account?<span><a href="{{route('register')}}"> Sign up</a></span></h4>
+    <p class="mt-5 mb-3">&copy; Kelompok 7 - 2023</p>
   </form>
 </main>
 

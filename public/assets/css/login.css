@@ -7,7 +7,7 @@ body {
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #f5f5f5;
+    background-color: #2A3F54;
 }
 
 .form-signin {
@@ -19,6 +19,7 @@ body {
 
 .form-signin .checkbox {
     font-weight: 400;
+    color: #fff;
 }
 
 .form-signin .form-floating:focus-within {
@@ -35,4 +36,28 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.form-signin h1 {
+    color: #fff;
+}
+
+.form-signin p {
+    color: #fff;
+    opacity: 0.6;
+}
+
+.form-signin h4 {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.form-signin h4 a {
+    color: #0dcaf0;
+    text-decoration: none;
+}
+
+.form-signin h4 a:hover {
+    color: #0d6efd;
 }

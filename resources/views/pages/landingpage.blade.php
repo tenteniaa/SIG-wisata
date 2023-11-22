@@ -147,88 +147,23 @@
                     <p>Check Destination Galleries</p>
                 </div>
 
-                <div class="row g-0" data-aos="fade-left">
+                <div class="gallery-photo-slider swiper row g-0" data-aos="fade-left">
+                    <div class="swiper-wrapper">
 
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-1.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-1.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
+                        @foreach($wisata as $item)
+                        <div class="swiper-slide">
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="{{url('assets/images/wisata')}}/{{ $item->cover }}" alt="" class="img-fluid">
+                                <div class="gallery-links d-flex align-items-center justify-content-center">
+                                    <a href="{{url('assets/images/wisata')}}/{{ $item->cover }}" title="{{ $item->nama }}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                                    <a href="{{route('wisata.detail', $item->id_wisata)}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
                         </div>
+                        @endforeach
+                        
                     </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-2.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-2.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-3.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-3.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-4.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-4.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-5.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-5.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-6.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-6.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-7.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-7.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="450">
-                            <a href="{{ asset('assets/images/landingpage/gallery/gallery-8.jpg') }}"
-                                class="gallery-lightbox">
-                                <img src="{{ asset('assets/images/landingpage/gallery/gallery-8.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
+                    <div class="swiper-pagination"></div>
                 </div>
 
             </div>

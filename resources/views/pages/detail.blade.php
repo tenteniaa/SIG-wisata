@@ -87,17 +87,23 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
+                @if($wisata->cover)
                 <div class="swiper-slide">
-                  <img src="{{ asset('assets/images/portfolio/portfolio-1.jpg') }}" alt="">
+                  <img src="{{url('assets/images/wisata')}}/{{ $wisata->cover }}" alt="">
                 </div>
+                @endif
 
+                @if($wisata->foto1)
                 <div class="swiper-slide">
-                  <img src="{{ asset('assets/images/portfolio/portfolio-2.jpg') }}" alt="">
+                  <img src="{{url('assets/images/wisata')}}/{{ $wisata->foto1 }}" alt="">
                 </div>
+                @endif
 
+                @if($wisata->foto2)
                 <div class="swiper-slide">
-                  <img src="{{ asset('assets/images/portfolio/portfolio-3.jpg') }}" alt="">
+                  <img src="{{url('assets/images/wisata')}}/{{ $wisata->foto2 }}" alt="">
                 </div>
+                @endif
 
               </div>
               <div class="swiper-pagination"></div>

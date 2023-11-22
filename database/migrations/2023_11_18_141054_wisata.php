@@ -47,7 +47,7 @@ return new class extends Migration
             $table->string('contact')->nullable();
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('cover')->nullable();
+            $table->string('cover');
             $table->string('foto1')->nullable();
             $table->string('foto2')->nullable();
             $table->timestamps();

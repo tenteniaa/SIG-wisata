@@ -194,6 +194,40 @@
   });
 
   /**
+   * Gallery
+   */
+    new Swiper('.gallery-photo-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    // slidesPerColumn: 2, // Set to 2 for two rows
+    // slidesPerColumnFill: 'row',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 5
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 5
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 5
+      }
+    }
+  });
+
+  /**
    * Testimonials slider
    */
   new Swiper('.testimonials-slider', {

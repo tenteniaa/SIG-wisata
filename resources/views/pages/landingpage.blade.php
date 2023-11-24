@@ -122,7 +122,10 @@
                                               <td class="table-col">{{ $item->nama }}</td>
                                               <td class="table-col">
                                                 @foreach($item->jenis_wisata as $me)
-                                                  {{ $me->jenis->nama_jenis }},
+                                                  {{ $me->jenis->nama_jenis }}
+                                                  @if(!$loop->last)
+                                                  ,
+                                                  @endif
                                                 @endforeach
                                               </td>
                                               <td class="table-col">{{ $item->alamat }}</td>

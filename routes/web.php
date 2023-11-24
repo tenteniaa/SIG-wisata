@@ -14,9 +14,10 @@ use App\Http\Controllers\WisataController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth'); 
+
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('auth'); 
 
 Route::name('dashboard.')->group(function () {
     Route::get('/dashboard', function () {
@@ -59,3 +60,7 @@ Route::post('/register', [AuthController::class, 'store'])->name('store');
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/geotagging', function () {
+    return view('pages/geotagging', ['title' => 'Geotagging']);
+});

@@ -9,11 +9,14 @@ class Kecamatan extends Model
 {
     use HasFactory;
     protected $table = 'kecamatan';
-    protected $primaryKey = 'id_kecamatan';
     protected $guarded = [];
 
     public function region()
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'id_region', 'id');
+    }
+    public function wisata()
+    {
+        return $this->hasMany(Wisata::class);
     }
 }

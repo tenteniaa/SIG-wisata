@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Jenis extends Model
 {
     use HasFactory;
+    protected $table = 'jenis';
+    protected $guarded = [];
+
+    public function jenis_wisata()
+    {
+        return $this->hasMany(JenisWisata::class);
+    }
+    // public function wisata()
+    // {
+    //     return $this->hasMany(Wisata::class);
+    // }
 }

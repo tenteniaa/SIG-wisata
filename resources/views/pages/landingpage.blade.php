@@ -110,9 +110,9 @@
                                       <thead>
                                           <tr>
                                               <th>Nama</th>
+                                              <th>Jenis</th>
                                               <th>Alamat</th>
                                               <th>Harga</th>
-                                              <th>Fasilitas</th>
                                               <th>Aksi</th>
                                           </tr>
                                       </thead>
@@ -120,11 +120,15 @@
                                       @foreach($wisata as $item)
                                           <tr>
                                               <td class="table-col">{{ $item->nama }}</td>
+                                              <td class="table-col">
+                                                @foreach($item->jenis_wisata as $me)
+                                                  {{ $me->jenis->nama_jenis }},
+                                                @endforeach
+                                              </td>
                                               <td class="table-col">{{ $item->alamat }}</td>
                                               <td class="table-col">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                              <td class="table-col">{{ $item->fasilitas }}</td>
                                               <td>
-                                                <a href="{{route('wisata.detail', $item->id_wisata)}}" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></a>
                                               </td>
                                           </tr>
                                       @endforeach
@@ -156,7 +160,7 @@
                                 <img src="{{url('assets/images/wisata')}}/{{ $item->cover }}" alt="" class="img-fluid">
                                 <div class="gallery-links d-flex align-items-center justify-content-center">
                                     <a href="{{url('assets/images/wisata')}}/{{ $item->cover }}" title="{{ $item->nama }}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                                    <a href="{{route('wisata.detail', $item->id_wisata)}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    <a href="{{route('wisata.detail', $item->id)}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -173,63 +177,14 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
 
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Sistem Informasi Geografis adalah peta yang hidup.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Peta bukan hanya gambar, tapi jendela ke dunia. 
-                                    SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    SIG menghadirkan dimensi baru dalam pengambilan keputusan dengan memberikan konteks lokasi pada setiap data.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Dalam era SIG, lokasi bukan lagi sekadar koordinat, tetapi kisah yang mengungkap rahasia dunia.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    SIG: Mengubah data geografis menjadi keputusan yang cerdas.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+                {{-- <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Peta bukan hanya gambar, tapi jendela ke dunia. 
+                        SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div> --}}
 
             </div>
         </section><!-- End Testimonials Section -->

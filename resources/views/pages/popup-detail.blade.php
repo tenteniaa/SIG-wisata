@@ -8,7 +8,7 @@
     <div class="popup_desc">
         <ul>
             <li>Harga : Rp {{ number_format($wisata->harga, 0, ',', '.') }}</li>
-            <li>Semarang, Jawa Tengah</li>
+            <li>{{ $wisata->region->nama_region }}, Jawa Tengah</li>
         </ul>
         @if($wisata->sosmed)
             <a href="{{ $wisata->sosmed }}" target="_blank" class="more_info"><i class="bi bi-link"></i> Kunjungi</a>

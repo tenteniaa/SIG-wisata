@@ -200,7 +200,7 @@
     speed: 600,
     loop: true,
     autoplay: {
-      delay: 1000,
+      delay: 4000,
       disableOnInteraction: false
     },
     slidesPerView: 'auto',
@@ -224,24 +224,6 @@
         slidesPerView: 4,
         spaceBetween: 5
       }
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
     }
   });
 

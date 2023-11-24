@@ -9,7 +9,18 @@ class Wisata extends Model
 {
     use HasFactory;
     protected $table = 'wisata';
-    protected $primaryKey = 'id_wisata';
     protected $guarded = [];
 
+    public function jenis_wisata()
+    {
+        return $this->hasMany(JenisWisata::class, 'id_wisata');
+    }
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'id_region', 'id');
+    }
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id');
+    }
 }

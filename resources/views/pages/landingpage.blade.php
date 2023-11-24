@@ -1,5 +1,6 @@
 @extends('user.layout')
 @section('main')
+@include('user.hero')
     <main id="main">
 
         <!-- ======= About Section ======= -->
@@ -271,3 +272,23 @@
 
     </main><!-- End #main -->
 @endsection
+
+@push('scripts')
+<script src="{{ asset('assets/js/toolbox.js') }}"></script>
+<script>
+    var map = L.map('map').setView([-7.08777, 110.36230], 10); // Set default view
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+  
+    // Loop through each Wisata data and add a marker to the map
+    @foreach($wisata as $item)
+        var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
+        L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
+            .addTo(map)
+            .bindPopup(popupContent);
+            // console.log("Added marker for {{ $item->nama }}");
+    @endforeach
+</script>
+@endpush

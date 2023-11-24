@@ -35,6 +35,9 @@
     <link href="{{ asset('assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- Leaflet -->
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+
     <!-- Custom Theme Style -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   </head>
@@ -115,8 +118,13 @@
     <script src="{{ asset('assets/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
 
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    @stack('scripts')
 	
   </body>
 </html>

@@ -1200,8 +1200,8 @@ body {
   margin: 10px 0;
   float: right; }
 
-.fixed_height_320 {
-  height: 320px; }
+.fixed_height_350 {
+  height: 350px; }
 
 .fixed_height_390 {
   height: 390px; }
@@ -1694,7 +1694,9 @@ legend {
   padding-bottom: 7px; }
 
 .demo-placeholder {
-  height: 350px; }
+  height: 350px; 
+  border-radius: 10px;
+}
 
 /** Contacts **/
 .profile_details:nth-child(3n) {
@@ -2322,6 +2324,22 @@ span.right {
   height: 425px;
 }
 
+.dashboard_graph .x_title {
+  display: flex;
+  justify-content: center;
+  padding: 5px 5px 7px; 
+}
+
+.dashboard_graph .x_title h3 {
+  margin: 0;
+  font-weight: bold; }
+
+.dashboard_graph .x_title h2 {
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .dashboard_graph .col-md-9, .dashboard_graph .col-md-3 {
   padding: 0; }
 
@@ -2332,6 +2350,7 @@ a.user-profile {
   width: 29px;
   height: 29px;
   border-radius: 50%;
+  border: 1px solid #ADABAB;
   margin-right: 10px; }
 
 ul.top_profiles {
@@ -3310,12 +3329,6 @@ ul.social li {
 
 /* *********  /profile/social  **************************** */
 /* *********  widgets  **************************** */
-.dashboard_graph .x_title {
-  padding: 5px 5px 7px; }
-
-.dashboard_graph .x_title h3 {
-  margin: 0;
-  font-weight: bold; }
 
 .chart {
   position: relative;
@@ -4968,3 +4981,73 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+
+.border-0 {
+  border: 0 !important;
+}
+.border-top-0 {
+  border-top: 0 !important;
+}
+.btn-circle {
+  border-radius: 100%;
+  width: 42px;
+  height: 42px;
+  line-height: 20px;
+  padding: 10px;
+}
+.border-right {
+  border-right: 1px solid #000;
+}
+.table-head {
+  border: 0 !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+.table-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #5d5d5d;
+}
+.table-email {
+  font-size: 14px;
+}
+@media (max-width: 480px) {
+  .popover-icon {
+    display: none; 
+  }
+}
+.popover-item {
+  margin-left: -15px;
+  border: 2px solid #fff;
+}
+.popover-item:hover {
+  z-index: 10;
+  position: relative;
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-22 {
+  font-size: 22px;
+}
+.status .button-wrap {
+  width: 100%;
+  margin: 5px;
+}
+.status .button-bg {
+  width: 50px;
+  height: 100%;
+  background-color: #198754;
+  border-radius: 40px;
+  padding: 3px;
+  color: #fff;
+}
+.status .button-switch {
+  width: 20px;
+  height: 20px;
+  background-color:#fff;
+  border-radius: 36px;
+}
+.filter-title {
+  font-size: 18px;
+}

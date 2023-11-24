@@ -80,16 +80,9 @@
     <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
     <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script>
-    <!-- Flot -->
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.time.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.stack.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.resize.js') }}"></script>
-    <!-- Flot plugins -->
-    <script src="{{ asset('assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
-    <script src="{{ asset('assets/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- ECharts -->
+    <script src="{{ asset('assets/vendors/echarts/dist/echarts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/echarts/map/js/world.js') }}"></script>
     <!-- DateJS -->
     <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
     <!-- JQVMap -->

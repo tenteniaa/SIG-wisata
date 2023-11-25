@@ -45,8 +45,8 @@
               </div>
 
               <div class="col-md-3 col-sm-3 bg-white">
-                <div class="x_title" style="background: #ADABAB; border-radius:10px;">
-                  <h2 style="color: #fff;">Layers</h2>
+                <div class="x_title layers">
+                  <h2 style="color: #fff;"><i class="fa fa-sliders"></i> Layers</h2>
                   <div class="clearfix"></div>
                 </div>
 

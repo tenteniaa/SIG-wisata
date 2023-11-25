@@ -85,8 +85,50 @@
 
                 <div class="row content">
                     <h3 data-aos="fade-up">Sebaran <span>Tempat Wisata</span> di Kota Semarang dan Kabupaten Semarang</h3>
-                    <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                        <img src="{{ asset('assets/images/landingpage/details-4.png') }}" class="img-fluid" alt="">
+                    <div class="col-md-4 pt-5 order-1 order-md-2" data-aos="fade-left">
+                        <div class="layers">
+                          <h2 style="color: #fff;"><i class="fa fa-sliders"></i> Layers</h2>
+                          <div class="clearfix"></div>
+                        </div>
+        
+                        <div class="col-md-12 col-sm-12">
+                          <h4 class="filter-title">Region</h4>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" class="flat" checked="checked"> Kota Semarang
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" class="flat"> Kabupaten Semarang
+                            </label>
+                          </div>
+                        </div>
+        
+                        <div class="col-md-12 col-sm-12 mt-4">
+                          <h4 class="filter-title">Kategori</h4>
+                          <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" data-jenis="all" checked="checked"> Semua
+                            </label>
+                          </div>
+                          @php
+                              $jenis_wisata_unique = [];
+                              foreach ($wisata as $item) {
+                                  foreach ($item->jenis_wisata as $me) {
+                                      $jenis_wisata_unique[$me->jenis->id] = $me->jenis->nama_jenis;
+                                  }
+                              }
+                          @endphp
+        
+                          @foreach($jenis_wisata_unique as $id_jenis => $nama_jenis)
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" data-id_jenis="{{ $id_jenis }}"> {{ $nama_jenis }}
+                                </label>
+                            </div>
+                          @endforeach
+                        </div>
                     </div>
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
                         <div id="map" class="maps__container">
@@ -123,10 +165,7 @@
                                               <td class="table-col">{{ $item->nama }}</td>
                                               <td class="table-col">
                                                 @foreach($item->jenis_wisata as $me)
-                                                  {{ $me->jenis->nama_jenis }}
-                                                  @if(!$loop->last)
-                                                  ,
-                                                  @endif
+                                                {{ $me->jenis->nama_jenis }}@if (!$loop->last), @endif
                                                 @endforeach
                                               </td>
                                               <td class="table-col">{{ $item->alamat }}</td>

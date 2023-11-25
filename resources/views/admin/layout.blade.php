@@ -35,6 +35,9 @@
     <link href="{{ asset('assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- Leaflet -->
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+
     <!-- Custom Theme Style -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   </head>
@@ -77,16 +80,9 @@
     <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
     <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script>
-    <!-- Flot -->
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.time.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.stack.js') }}"></script>
-    <script src="{{ asset('assets/vendors/Flot/jquery.flot.resize.js') }}"></script>
-    <!-- Flot plugins -->
-    <script src="{{ asset('assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
-    <script src="{{ asset('assets/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- ECharts -->
+    <script src="{{ asset('assets/vendors/echarts/dist/echarts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/echarts/map/js/world.js') }}"></script>
     <!-- DateJS -->
     <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
     <!-- JQVMap -->
@@ -115,8 +111,13 @@
     <script src="{{ asset('assets/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
 
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    @stack('scripts')
 	
   </body>
 </html>

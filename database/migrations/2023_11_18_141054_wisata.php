@@ -14,32 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('wisata', function (Blueprint $table) {
-            $table->id('id_wisata');
+            $table->id();
             $table->string('nama');
-
-            $table->unsignedBigInteger('id_jenis');
-            $table->foreign('id_jenis')
-                    ->references('id_jenis')
-                    ->on('jenis')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-
             $table->bigInteger('harga');
-
-            $table->unsignedBigInteger('id_region');
-            $table->foreign('id_region')
-                    ->references('id_region')
-                    ->on('region')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-
-            $table->unsignedBigInteger('id_kecamatan');
-            $table->foreign('id_kecamatan')
-                    ->references('id_kecamatan')
-                    ->on('kecamatan')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-
+            $table->bigInteger('id_region');
+            $table->bigInteger('id_kecamatan');
             $table->string('alamat');
             $table->string('deskripsi')->nullable();
             $table->string('fasilitas')->nullable();

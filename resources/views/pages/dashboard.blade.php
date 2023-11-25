@@ -1,40 +1,30 @@
 @extends('admin.layout')
-@section('main')    
+@section('main')
 
     <!-- page content -->
     <div class="right_col" role="main">
         <!-- top tiles -->
-        <div class="row" style="display: inline-block;" >
+        <div class="row">
           <div class="tile_count">
             <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-              <div class="count">2500</div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+              <span class="count_top"><i class="fa fa-map-marker"></i> Jumlah Wisata</span>
+              <div class="count green">{{ $jumlah_wisata }}</div>
+              <span class="count_bottom"><i class="green">Wisata </i> Semarang</span>
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-              <div class="count">123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+              <span class="count_top"><i class="fa fa-location-arrow"></i> Jumlah Kecamatan</span>
+              <div class="count">{{ $jumlah_kecamatan_kota }}</div>
+              <span class="count_bottom"><i class="green">Kota </i> Semarang</span>
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-              <div class="count green">2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+              <span class="count_top"><i class="fa fa-location-arrow"></i> Jumlah Kecamatan</span>
+              <div class="count">{{ $jumlah_kecamatan_kab }}</div>
+              <span class="count_bottom"><i class="green">Kabupaten </i> Semarang</span>
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-              <div class="count">2,315</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-              <div class="count">7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+              <span class="count_top"><i class="fa fa-user"></i> Jumlah Admin</span>
+              <div class="count green">{{ $jumlah_user }}</div>
+              <span class="count_bottom"><i class="green">Admin </i> Sistem</span>
             </div>
           </div>
         </div>
@@ -45,61 +35,73 @@
             <div class="dashboard_graph">
 
               <div class="row x_title">
-                <div class="col-md-6">
-                  <h3>Network Activities <small>Graph title sub-title</small></h3>
-                </div>
-                <div class="col-md-6">
-                  <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                  </div>
+                <div class="col-md-12">
+                  <h3>Destinasi Wisata <small>Kota Semarang dan Kabupaten Semarang</small></h3>
                 </div>
               </div>
 
-              <div class="col-md-9 col-sm-9 ">
-                <div id="chart_plot_01" class="demo-placeholder"></div>
+              <div class="col-md-9 col-sm-9">
+                <div id="map" class="demo-placeholder"></div>
               </div>
-              <div class="col-md-3 col-sm-3  bg-white">
-                <div class="x_title">
-                  <h2>Top Campaign Performance</h2>
+
+              <div class="col-md-3 col-sm-3 bg-white">
+                <div class="x_title" style="background: #ADABAB; border-radius:10px;">
+                  <h2 style="color: #fff;">Layers</h2>
                   <div class="clearfix"></div>
                 </div>
 
                 <div class="col-md-12 col-sm-12 ">
-                  <div>
-                    <p>Facebook Campaign</p>
-                    <div class="">
-                      <div class="progress progress_sm" style="width: 76%;">
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
-                      </div>
-                    </div>
+                  <h4 class="filter-title">Region</h4>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" checked="checked"> Kota Semarang
+                    </label>
                   </div>
-                  <div>
-                    <p>Twitter Campaign</p>
-                    <div class="">
-                      <div class="progress progress_sm" style="width: 76%;">
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
-                      </div>
-                    </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat"> Kabupaten Semarang
+                    </label>
                   </div>
                 </div>
-                <div class="col-md-12 col-sm-12 ">
-                  <div>
-                    <p>Conventional Media</p>
-                    <div class="">
-                      <div class="progress progress_sm" style="width: 76%;">
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
-                      </div>
-                    </div>
+
+                <div class="col-md-12 col-sm-12 mt-4">
+                  <h4 class="filter-title">Kategori</h4>
+                  <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="flat" data-jenis="all" checked="checked"> Semua
+                    </label>
                   </div>
-                  <div>
-                    <p>Bill boards</p>
-                    <div class="">
-                      <div class="progress progress_sm" style="width: 76%;">
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                      </div>
-                    </div>
+                  {{-- <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" data-jenis="Alam" checked="checked"> Alam
+                    </label>
                   </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" data-jenis="Sejarah"> Sejarah/Budaya
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" data-jenis="Budaya"> Hiburan
+                    </label>
+                  </div> --}}
+                  @php
+                      $jenis_wisata_unique = [];
+                      foreach ($wisata as $item) {
+                          foreach ($item->jenis_wisata as $me) {
+                              $jenis_wisata_unique[$me->jenis->id] = $me->jenis->nama_jenis;
+                          }
+                      }
+                  @endphp
+
+                  @foreach($jenis_wisata_unique as $id_jenis => $nama_jenis)
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="flat" data-id_jenis="{{ $id_jenis }}"> {{ $nama_jenis }}
+                        </label>
+                    </div>
+                  @endforeach
                 </div>
 
               </div>
@@ -112,240 +114,34 @@
         <br />
 
         <div class="row">
-
-
-          <div class="col-md-4 col-sm-4 ">
-            <div class="x_panel tile fixed_height_320">
+          <div class="col-md-6 col-sm-6  ">
+            <div class="x_panel fixed_height_350">
               <div class="x_title">
-                <h2>App Versions</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                      </div>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
+                <h2>Wisata by Region</h2>
+                <div class="nav navbar-right panel_toolbox">
+                  <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </div>
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <h4>App Usage across versions</h4>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.2</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>123k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.3</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>53k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.4</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>23k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.5</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>3k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.6</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>1k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-
+                <h4>Jumlah Wisata berdasarkan Region</h4>
+                <div id="wisata_region" style="height:250px;"></div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-4 ">
-            <div class="x_panel tile fixed_height_320 overflow_hidden">
+          <div class="col-md-6 col-sm-6 ">
+            <div class="x_panel tile fixed_height_350 overflow_hidden">
               <div class="x_title">
-                <h2>Device Usage</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                      </div>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <table class="" style="width:100%">
-                  <tr>
-                    <th style="width:37%;">
-                      <p>Top 5</p>
-                    </th>
-                    <th>
-                      <div class="col-lg-7 col-md-7 col-sm-7 ">
-                        <p class="">Device</p>
-                      </div>
-                      <div class="col-lg-5 col-md-5 col-sm-5 ">
-                        <p class="">Progress</p>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                    </td>
-                    <td>
-                      <table class="tile_info">
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square blue"></i>IOS </p>
-                          </td>
-                          <td>30%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square green"></i>Android </p>
-                          </td>
-                          <td>10%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square purple"></i>Blackberry </p>
-                          </td>
-                          <td>20%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square aero"></i>Symbian </p>
-                          </td>
-                          <td>15%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square red"></i>Others </p>
-                          </td>
-                          <td>30%</td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-4 ">
-            <div class="x_panel tile fixed_height_320">
-              <div class="x_title">
-                <h2>Quick Settings</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                      </div>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div class="dashboard-widget-content">
-                  <ul class="quick-list">
-                    <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
-                    </li>
-                    <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
-                    </li>
-                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
-                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                    </li>
-                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
-                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                    </li>
-                    <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
-                    </li>
-                  </ul>
-
-                  <div class="sidebar-widget">
-                      <h4>Profile Completion</h4>
-                      <canvas width="150" height="80" id="chart_gauge_01" class="" style="width: 160px; height: 100px;"></canvas>
-                      <div class="goal-wrapper">
-                        <span id="gauge-text" class="gauge-value pull-left">0</span>
-                        <span class="gauge-value pull-left">%</span>
-                        <span id="goal-text" class="goal-value pull-right">100%</span>
-                      </div>
-                  </div>
+                <h2>Kategori Wisata</h2>
+                <div class="nav navbar-right panel_toolbox">
+                  <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <h4>Jumlah Wisata berdasarkan Kategori</h4>
+                <div id="wisata_kategori" style="height:250px;"></div>
               </div>
             </div>
           </div>
@@ -353,333 +149,396 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-sm-4 ">
+          <div class="col-md-8 col-sm-8 ">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Recent Activities <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                      </div>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
+                <h2>Daftar Administrator <small>Sessions</small></h2>
+                <div class="nav navbar-right panel_toolbox">
+                  <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </div>
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
                 <div class="dashboard-widget-content">
-
-                  <ul class="list-unstyled timeline widget">
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">
-                                            <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                        </h2>
-                          <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
-                          </div>
-                          <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">
-                                            <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                        </h2>
-                          <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
-                          </div>
-                          <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">
-                                            <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                        </h2>
-                          <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
-                          </div>
-                          <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">
-                                            <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                        </h2>
-                          <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
-                          </div>
-                          <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+                  <div class="table-responsive">
+                    <table class="table no-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th class="table-head text-muted">Nama</th>
+                                <th class="table-head text-muted">Role</th>
+                                <th class="table-head text-muted popover-icon">Team</th>
+                                <th class="table-head text-muted">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($user as $item)
+                          <tr>
+                              <td class="border-right py-4">
+                                <div class="d-flex no-block align-items-center">
+                                    <div style="margin-right: 10px;"><img src="{{ asset('assets/images/dashboard/user.png') }}"
+                                          alt="user" class="rounded-circle" width="45"
+                                          height="45" />
+                                    </div>
+                                    <div class="">
+                                        <h5 class="table-name mb-0">{{ $item->name }}</h5>
+                                        <span class="table-email text-muted">{{ $item->email }}</span>
+                                    </div>
+                                </div>
+                              </td>
+                              <td class="border-right text-muted py-4" style="font-size: 14px">Admin</td>
+                              <td class="border-right pl-4 py-4 popover-icon">
+                                  <a class="btn btn-primary rounded-circle btn-circle font-12 popover-item"
+                                      href="javascript:void(0)">DS</a>
+                                  <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
+                                      href="javascript:void(0)">SS</a>
+                                  <a class="btn btn-warning rounded-circle btn-circle font-12 popover-item"
+                                      href="javascript:void(0)">RP</a>
+                              </td>
+                              <td class="status text-center py-4">
+                                <div class="button-wrap">
+                                  <div class="button-bg">
+                                    <div class="button-switch"></div>
+                                  </div>
+                                </div>
+                              </td>
+                          </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                  </div>
+                  {{-- <div class="table-responsive">
+                    <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($user as $item)
+                            <tr>
+                                <td class="table-col">{{ $item->name }}</td>
+                                <td class="table-col"></td>
+                                <td class="table-col"></td>
+                                {{-- <td>
+                                  <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                  </div> --}}
                 </div>
               </div>
             </div>
           </div>
 
-
-          <div class="col-md-8 col-sm-8 ">
-
-
-
-            <div class="row">
-
-              <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Visitors location <small>geo-presentation</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
+          <!-- start of weather widget -->
+          <div class="col-md-4 col-sm-4 ">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Cuaca Harian <small>Sessions</small></h2>
+                <div class="nav navbar-right panel_toolbox">
+                  <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="temperature"><b>Monday</b>, 07:30 AM</div>
                   </div>
-                  <div class="x_content">
-                    <div class="dashboard-widget-content">
-                      <div class="col-md-4 hidden-small">
-                        <h2 class="line_30">125.7k Views from 60 countries</h2>
-
-                        <table class="countries_list">
-                          <tbody>
-                            <tr>
-                              <td>United States</td>
-                              <td class="fs15 fw700 text-right">33%</td>
-                            </tr>
-                            <tr>
-                              <td>France</td>
-                              <td class="fs15 fw700 text-right">27%</td>
-                            </tr>
-                            <tr>
-                              <td>Germany</td>
-                              <td class="fs15 fw700 text-right">16%</td>
-                            </tr>
-                            <tr>
-                              <td>Spain</td>
-                              <td class="fs15 fw700 text-right">11%</td>
-                            </tr>
-                            <tr>
-                              <td>Britain</td>
-                              <td class="fs15 fw700 text-right">10%</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div id="world-map-gdp" class="col-md-8 col-sm-12 " style="height:230px;"></div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="weather-icon">
+                      <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="weather-text">
+                      <h2>Semarang <br><i>Partly Cloudy Day</i></h2>
                     </div>
                   </div>
                 </div>
-              </div>
-
-            </div>
-            <div class="row">
-
-
-              <!-- Start to do list -->
-              <div class="col-md-6 col-sm-6 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>To Do List <small>Sample tasks</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div class="">
-                      <ul class="to_do">
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Schedule meeting with new client </p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Create email address for new intern</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Have IT fix the network printer</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Copy backups to offsite location</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Create email address for new intern</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Have IT fix the network printer</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> Copy backups to offsite location</p>
-                        </li>
-                      </ul>
-                    </div>
+                <div class="col-sm-12">
+                  <div class="weather-text pull-right">
+                    <h3 class="degrees">23</h3>
                   </div>
                 </div>
-              </div>
-              <!-- End to do list -->
-
-              <!-- start of weather widget -->
-              <div class="col-md-6 col-sm-6 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Daily active users <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="temperature"><b>Monday</b>, 07:30 AM
-                          <span>F</span>
-                          <span><b>C</b></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <div class="weather-icon">
-                          <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                        </div>
-                      </div>
-                      <div class="col-sm-8">
-                        <div class="weather-text">
-                          <h2>Texas <br><i>Partly Cloudy Day</i></h2>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="weather-text pull-right">
-                        <h3 class="degrees">23</h3>
-                      </div>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="row weather-days">
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Mon</h2>
-                          <h3 class="degrees">25</h3>
-                          <canvas id="clear-day" width="32" height="32"></canvas>
-                          <h5>15 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Tue</h2>
-                          <h3 class="degrees">25</h3>
-                          <canvas height="32" width="32" id="rain"></canvas>
-                          <h5>12 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Wed</h2>
-                          <h3 class="degrees">27</h3>
-                          <canvas height="32" width="32" id="snow"></canvas>
-                          <h5>14 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Thu</h2>
-                          <h3 class="degrees">28</h3>
-                          <canvas height="32" width="32" id="sleet"></canvas>
-                          <h5>15 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Fri</h2>
-                          <h3 class="degrees">28</h3>
-                          <canvas height="32" width="32" id="wind"></canvas>
-                          <h5>11 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="col-sm-2">
-                        <div class="daily-weather">
-                          <h2 class="day">Sat</h2>
-                          <h3 class="degrees">26</h3>
-                          <canvas height="32" width="32" id="cloudy"></canvas>
-                          <h5>10 <i>km/h</i></h5>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="row weather-days">
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Mon</h2>
+                      <h3 class="degrees">25</h3>
+                      <canvas id="clear-day" width="32" height="32"></canvas>
+                      <h5>15 <i>km/h</i></h5>
                     </div>
                   </div>
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Tue</h2>
+                      <h3 class="degrees">25</h3>
+                      <canvas height="32" width="32" id="rain"></canvas>
+                      <h5>12 <i>km/h</i></h5>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Wed</h2>
+                      <h3 class="degrees">27</h3>
+                      <canvas height="32" width="32" id="snow"></canvas>
+                      <h5>14 <i>km/h</i></h5>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Thu</h2>
+                      <h3 class="degrees">28</h3>
+                      <canvas height="32" width="32" id="sleet"></canvas>
+                      <h5>15 <i>km/h</i></h5>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Fri</h2>
+                      <h3 class="degrees">28</h3>
+                      <canvas height="32" width="32" id="wind"></canvas>
+                      <h5>11 <i>km/h</i></h5>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="daily-weather">
+                      <h2 class="day">Sat</h2>
+                      <h3 class="degrees">26</h3>
+                      <canvas height="32" width="32" id="cloudy"></canvas>
+                      <h5>10 <i>km/h</i></h5>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
                 </div>
-
               </div>
-              <!-- end of weather widget -->
             </div>
           </div>
+          <!-- end of weather widget -->
         </div>
     </div>
     <!-- /page content -->
 
 @endsection
+
+@push('scripts')
+{{-- <script>
+  var map = L.map('map').setView([-7.08777, 110.36230], 10); // Set default view
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Loop through each Wisata data and add a marker to the map
+  @foreach($wisata as $item)
+      var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
+      L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
+          .addTo(map)
+          .bindPopup(popupContent);
+          // console.log("Added marker for {{ $item->nama }}");
+  @endforeach
+</script> --}}
+
+<script>
+var map = L.map('map').setView([-7.08777, 110.36230], 10);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+var markers = [];
+
+@foreach($wisata as $item)
+    var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
+    var marker = L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
+        .bindPopup(popupContent);
+        
+    @foreach($item->jenis_wisata as $me)
+      markers.push({ marker: marker, id_jenis: '{{ $me->jenis->id }}' });
+    @endforeach
+@endforeach
+console.log(markers)
+
+// Tambahkan semua marker ke peta
+markers.forEach(function (item) {
+    item.marker.addTo(map);
+});
+
+// Fungsi untuk memfilter marker berdasarkan id_jenis
+function filterMarkersByIdJenis(id_jenis) {
+    markers.forEach(function (item) {
+        if (id_jenis === 'all' || item.id_jenis === id_jenis) {
+            map.addLayer(item.marker);
+        } else {
+            map.removeLayer(item.marker);
+        }
+    });
+}
+
+// Mendengarkan perubahan pada checkbox dan menyaring marker berdasarkan id_jenis
+$(document).ready(function () {
+    $('input[type="checkbox"]').change(function () {
+        var id_jenis = $(this).attr('data-id_jenis');
+        filterMarkersByIdJenis(id_jenis);
+    });
+});
+</script>
+
+<script>
+  var echartBar = echarts.init(document.getElementById('wisata_region'));
+  echartBar.setOption({
+      // title: {
+      //     text: 'Graph title',
+      //     subtext: 'Graph Sub-text'
+      // },
+      tooltip: {
+          trigger: 'axis'
+      },
+      legend: {
+          data: ['Kabupaten Semarang', 'Kota Semarang'],
+          orient: 'horizontal',
+          bottom: 10,
+      },
+      toolbox: {
+          show: true,
+          feature: {
+              restore: {
+                  show: true,
+                  title: "Restore"
+              },
+              saveAsImage: {
+                  show: true,
+                  title: "Save Image"
+              }
+          }
+      },
+      calculable: false,
+      xAxis: {
+        type: 'category',
+        data: [],
+      },
+      yAxis: [{
+          type: 'value',
+          name: 'Jumlah Wisata',
+          min: 0,
+          position: 'left',
+          axisLabel: {
+              formatter: '{value}',
+          },
+      }],
+      color: ['#26B99A', '#374A5E'],
+      series: [
+          {
+              name: 'Kabupaten Semarang',
+              type: 'bar',
+              barWidth: 30,
+              data: [{{ $jumlah_wisata_kab }}],
+              markPoint: {
+                data: [
+                  {
+                      // name: 'Kabupaten Semarang',
+                      value: {{ $jumlah_wisata_kab }},
+                      xAxis: 0,
+                      yAxis: {{ $jumlah_wisata_kab }},
+                  },
+                ],
+              },
+          },
+          {
+              name: 'Kota Semarang',
+              type: 'bar',
+              barWidth: 30,
+              data: [{{ $jumlah_wisata_kota }}],
+              markPoint: {
+                data: [
+                  {
+                      // name: 'Kota Semarang',
+                      value: {{ $jumlah_wisata_kota }},
+                      xAxis: 0,
+                      yAxis: {{ $jumlah_wisata_kota }},
+                  },
+                ],
+              },
+          },
+      ]
+  });
+
+  var echartDonut = echarts.init(document.getElementById('wisata_kategori'));
+  echartDonut.setOption({
+      color: ['#26B99A', '#374A5E', '#479BDB'],
+      tooltip: {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
+      calculable: true,
+      legend: {
+          x: 'center',
+          y: 'bottom',
+          data: ['Alam', 'Sejarah/Budaya', 'Hiburan']
+      },
+      toolbox: {
+          show: true,
+          feature: {
+              magicType: {
+                  show: true,
+                  type: ['pie', 'funnel'],
+                  option: {
+                      funnel: {
+                          x: '25%',
+                          width: '50%',
+                          funnelAlign: 'center',
+                          max: 1548
+                      }
+                  }
+              },
+              restore: {
+                  show: true,
+                  title: "Restore"
+              },
+              saveAsImage: {
+                  show: true,
+                  title: "Save Image"
+              }
+          }
+      },
+      series: [{
+          name: 'Kategori',
+          type: 'pie',
+          radius: ['35%', '55%'],
+          itemStyle: {
+              normal: {
+                  label: {
+                      show: true
+                  },
+                  labelLine: {
+                      show: true
+                  }
+              },
+              emphasis: {
+                  label: {
+                      show: true,
+                      position: 'center',
+                      textStyle: {
+                          fontSize: '14',
+                          fontWeight: 'normal'
+                      }
+                  }
+              }
+          },
+          data: [
+            { value: {{ $wisata_alam }}, name: 'Alam' },
+            { value: {{ $wisata_sejarah }}, name: 'Sejarah/Budaya' },
+            { value: {{ $wisata_hiburan }}, name: 'Hiburan' }
+          ]
+      }]
+  });
+</script>
+@endpush

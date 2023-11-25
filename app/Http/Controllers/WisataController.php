@@ -11,13 +11,13 @@ class WisataController extends Controller
     public function index(){
         $title = 'Sistem Informasi Geografis Wisata';
         // $wisata = Wisata::oldest()->paginate(10)->withQueryString();
-        $wisata = Wisata::oldest()->get();
+        $wisata = Wisata::latest()->get();
         $jumlah_wisata = Wisata::count();
 
         return view('pages.landingpage', compact('title', 'wisata', 'jumlah_wisata'));
     }
 
-    public function detail($id)
+    public function show($id)
     {
         $title = 'Detail Wisata';
         $wisata = Wisata::find($id);

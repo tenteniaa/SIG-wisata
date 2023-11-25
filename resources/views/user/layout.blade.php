@@ -42,8 +42,6 @@
 
   @include('user.navbar')
 
-  @include('user.hero')
-
   @yield('main')
 
   @include('user.footer')
@@ -70,24 +68,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>
-  <script src="{{ asset('assets/js/toolbox.js') }}"></script>
 
-  <script>
-    var map = L.map('map').setView([-6.98403, 110.40956], 10); // Set default view
-  
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
-  
-    // Loop through each Wisata data and add a marker to the map
-    @foreach($wisata as $item)
-        var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
-        L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
-            .addTo(map)
-            .bindPopup(popupContent);
-            // console.log("Added marker for {{ $item->nama }}");
-    @endforeach
-  </script>
+  @stack('scripts')
 
 </body>
 

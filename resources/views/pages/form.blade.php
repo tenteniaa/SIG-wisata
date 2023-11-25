@@ -133,8 +133,16 @@
 										<input type="text" textarea class="form-control" rows="3" placeholder="Masukkan Sosial Media"></textarea>
 									</div>
 								</div>
+								<div class="form-group row">
+									<label class="control-label col-md-3 col-sm-3 ">Cover</label>
+									<form method="post" enctype="multipart/form-data" action="uploadproses.php">
+									<div class="col-md-9 col-sm-9 ">
+									<Input type="file" name="gambar">
+									{{-- <input type="submit" value="upload"> --}}
+									</div>
+								</form>
+								</div>
 								
-
 								<div class="ln_solid"></div>
 								<div class="form-group">
 									<div class="col-md-9 col-sm-9  offset-md-3">

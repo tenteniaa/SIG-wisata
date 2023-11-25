@@ -85,52 +85,77 @@
 
                 <div class="row content">
                     <h3 data-aos="fade-up">Sebaran <span>Tempat Wisata</span> di Kota Semarang dan Kabupaten Semarang</h3>
-                    <div class="col-md-4 pt-5 order-1 order-md-2" data-aos="fade-left">
+                    <div class="col-md-3 mt-5 order-1 order-md-2 filter-by pt-2" data-aos="fade-left">
                         <div class="layers">
-                          <h2 style="color: #fff;"><i class="fa fa-sliders"></i> Layers</h2>
+                          <h2><i class="fa fa-filter"></i> Filters by</h2>
                           <div class="clearfix"></div>
                         </div>
         
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-12 col-sm-12 mt-4 legend">
                           <h4 class="filter-title">Region</h4>
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" class="flat" checked="checked"> Kota Semarang
-                            </label>
-                          </div>
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" class="flat"> Kabupaten Semarang
-                            </label>
-                          </div>
+                          <ul class="legend-list">
+                            <li>
+                                <div class="color-name"><span class="color-code stairs"></span>
+                                  <p class="legend-name">Kota Semarang</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-id_region="2"></div>
+                            </li>
+                            <li>
+                                <div class="color-name"><span class="color-code generic-models"></span>
+                                  <p class="legend-name">Kabupaten Semarang</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-id_region="1"></div>
+                            </li>
+                          </ul>
                         </div>
         
-                        <div class="col-md-12 col-sm-12 mt-4">
+                        <div class="col-md-12 col-sm-12 mt-4 legend">
                           <h4 class="filter-title">Kategori</h4>
-                          <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat" data-jenis="all" checked="checked"> Semua
-                            </label>
-                          </div>
-                          @php
-                              $jenis_wisata_unique = [];
-                              foreach ($wisata as $item) {
-                                  foreach ($item->jenis_wisata as $me) {
-                                      $jenis_wisata_unique[$me->jenis->id] = $me->jenis->nama_jenis;
-                                  }
-                              }
-                          @endphp
+                          <ul class="legend-list">
+                            {{-- <li>
+                                <div class="color-name">
+                                    <span class="color-code air-terminals"></span>
+                                    <p class="legend-name">Semua</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-jenis="all" checked="checked"></div>
+                            </li> --}}
+                        
         
-                          @foreach($jenis_wisata_unique as $id_jenis => $nama_jenis)
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="flat" data-id_jenis="{{ $id_jenis }}"> {{ $nama_jenis }}
-                                </label>
-                            </div>
-                          @endforeach
+                            {{-- @foreach($jenis as $item)
+                                <li>
+                                    <div class="color-name">
+                                        <span class="color-code casework"></span>
+                                        <p class="legend-name">{{ $item->nama_jenis }}</p>
+                                    </div>
+                                    <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="{{ $item->id }}" id="checkbox_{{ $item->id }}"></div>
+                                </li>
+                            @endforeach --}}
+
+                            <li>
+                                <div class="color-name">
+                                    <span class="color-code air-terminals"></span>
+                                    <p class="legend-name">Alam</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="1"></div>
+                            </li>
+                            <li>
+                                <div class="color-name">
+                                    <span class="color-code casework"></span>
+                                    <p class="legend-name">Sejarah/Budaya</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="2"></div>
+                            </li>
+                            <li>
+                                <div class="color-name">
+                                    <span class="color-code roofs"></span>
+                                    <p class="legend-name">Hiburan</p>
+                                </div>
+                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="3"></div>
+                            </li>
+                          </ul>
                         </div>
                     </div>
-                    <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+                    <div class="col-md-9 mt-5 order-2 order-md-1" data-aos="fade-up">
                         <div id="map" class="maps__container">
                             {{-- OpenStreetMaps --}}
                         </div>
@@ -153,25 +178,25 @@
                                       <thead>
                                           <tr>
                                               <th>Nama</th>
-                                              <th>Jenis</th>
-                                              <th>Alamat</th>
-                                              <th>Harga</th>
+                                              <th class="popover-icon">Jenis</th>
+                                              <th class="popover-icon">Alamat</th>
+                                              <th class="popover-icon">Harga</th>
                                               <th>Aksi</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                       @foreach($wisata as $item)
                                           <tr>
-                                              <td class="table-col">{{ $item->nama }}</td>
-                                              <td class="table-col">
+                                              <td class="table-name">{{ $item->nama }}</td>
+                                              <td class="table-col popover-icon">
                                                 @foreach($item->jenis_wisata as $me)
                                                 {{ $me->jenis->nama_jenis }}@if (!$loop->last), @endif
                                                 @endforeach
                                               </td>
-                                              <td class="table-col">{{ $item->alamat }}</td>
-                                              <td class="table-col">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                              <td>
-                                                <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary"><i class="fa fa-eye"></i></a>
+                                              <td class="table-address popover-icon">{{ $item->alamat }}</td>
+                                              <td class="table-act popover-icon">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                              <td class="table-act">
+                                                <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary">Lihat <i class="fa fa-chevron-right"></i></a>
                                               </td>
                                           </tr>
                                       @endforeach
@@ -200,10 +225,13 @@
                         @foreach($wisata as $item)
                         <div class="swiper-slide">
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                <img src="{{url('assets/images/wisata')}}/{{ $item->cover }}" alt="" class="img-fluid">
-                                <div class="gallery-links d-flex align-items-center justify-content-center">
-                                    <a href="{{url('assets/images/wisata')}}/{{ $item->cover }}" title="{{ $item->nama }}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                                    <a href="{{route('wisata.detail', $item->id)}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <img src="{{url('assets/images/wisata')}}/{{ $item->cover }}" alt="" class="img-cover">
+                                <div class="gallery-links d-flex flex-column align-items-center justify-content-center">
+                                    <h3 class="nama-wisata">{{ $item->nama }}</h3>
+                                    <div>
+                                        <a href="{{url('assets/images/wisata')}}/{{ $item->cover }}" title="{{ $item->nama }}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                                        <a href="{{route('wisata.detail', $item->id)}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -219,16 +247,16 @@
         <!-- ======= Testimonials Section ======= -->
         <section id="testimonials" class="testimonials">
             <div class="container">
-
-                {{-- <div class="testimonial-item">
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Peta bukan hanya gambar, tapi jendela ke dunia. 
-                        SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div> --}}
-
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Peta bukan hanya gambar, tapi jendela ke dunia. 
+                            SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section><!-- End Testimonials Section -->
 
@@ -313,7 +341,6 @@
 @endsection
 
 @push('scripts')
-<script src="{{ asset('assets/js/toolbox.js') }}"></script>
 <script>
     var map = L.map('map').setView([-7.08777, 110.36230], 10); // Set default view
   
@@ -329,5 +356,7 @@
             .bindPopup(popupContent);
             // console.log("Added marker for {{ $item->nama }}");
     @endforeach
+
+    map.addControl(new L.Control.Fullscreen());
 </script>
 @endpush

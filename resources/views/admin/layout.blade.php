@@ -21,6 +21,7 @@
     <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
     <!-- Leaflet -->
     <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet'/>
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -65,6 +66,7 @@
     <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script>
     <!-- Leaflet -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>

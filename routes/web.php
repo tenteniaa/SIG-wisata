@@ -23,25 +23,9 @@ use App\Http\Controllers\DashboardController;
 Route::name('dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/dashboard2', function () {
-        return view('pages/index2', ['title' => 'Dashboard2']);
-    })->name('dashboard2');
-
     Route::get('/form', function () {
         return view('pages/form', ['title' => 'Form']);
     })->name('form');
-
-    Route::get('/elements', function () {
-        return view('pages/general_elements', ['title' => 'Elements']);
-    })->name('elements');
-
-    Route::get('/tables', function () {
-        return view('pages/tables', ['title' => 'Tables']);
-    })->name('tables');
-
-    Route::get('/tables-dynamic', function () {
-        return view('pages/tables_dynamic', ['title' => 'Tables Dynamic']);
-    })->name('tables-dynamic');
 });
 
 Route::name('wisata.')->group(function () {

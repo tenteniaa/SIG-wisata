@@ -33,6 +33,7 @@
   
   <!-- Leaflet -->
   <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet'/>
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/landingpage.css') }}" rel="stylesheet">
@@ -49,6 +50,8 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
+  <!-- jQuery -->
+  <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
   <!-- Vendor JS Files -->
   <script src="{{ asset('assets/vendors/purecounter/purecounter_vanilla.js') }}"></script>
   <script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>
@@ -56,14 +59,13 @@
   <script src="{{ asset('assets/vendors/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
-  <!-- jQuery -->
-  <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
   <!-- Datatables -->
   <script src="{{ asset('assets/vendors/tables/datatables.net/js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/tables/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/tables/datatable-basic.init.js') }}"></script>
   <!-- Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/landingpage.js') }}"></script>

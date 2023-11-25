@@ -11,11 +11,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#discover">Discover</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto active" href="/#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#discover">Discover</a></li>
+          <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="/#team">Team</a></li>
           <a class="btn-login scrollto" href="{{ route('login') }}">Login</a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

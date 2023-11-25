@@ -2330,18 +2330,31 @@ span.right {
   padding: 5px 5px 7px; 
 }
 
+.dashboard_graph .layers {
+  background: #ADABAB;
+  border-radius: 10px;
+  border-left: 5px solid #fff;
+}
+
+@media (max-width: 570px) {
+  .dashboard_graph .layers {
+    border-top: 5px solid #fff;
+    border-left: none;
+  } 
+}
+
 .dashboard_graph .x_title h3 {
   margin: 0;
   font-weight: bold; }
 
 .dashboard_graph .x_title h2 {
   font-size: 23px;
-  font-weight: bold;
+  font-weight: 500;
   text-align: center;
 }
 
-.dashboard_graph .col-md-9, .dashboard_graph .col-md-3 {
-  padding: 0; }
+.dashboard_graph p {
+  margin: 0 0 4px; }
 
 a.user-profile {
   color: #5E6974 !important; }
@@ -4693,9 +4706,6 @@ fieldset {
 
 .progress.progress_sm .progress-bar {
   height: 10px !important; }
-
-.dashboard_graph p {
-  margin: 0 0 4px; }
 
 ul.verticle_bars {
   width: 100%; }

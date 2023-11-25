@@ -1341,3 +1341,21 @@ section {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.layers {
+  display: flex;
+  justify-content: center;
+  padding: 5px; 
+  background: #ADABAB;
+  border-radius: 10px;
+}
+
+.layers h2 {
+  font-size: 23px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.filter-title {
+  font-size: 18px;
+}

@@ -63,10 +63,7 @@
                 <li>
                   <strong>Jenis</strong>: 
                   @foreach($wisata->jenis_wisata as $item)
-                    {{ $item->jenis->nama_jenis }}
-                    @if(!$loop->last)
-                    ,
-                    @endif
+                  {{ $item->jenis->nama_jenis }}@if (!$loop->last), @endif
                   @endforeach
                 </li>
                 <li><strong>Alamat</strong>: {{ $wisata->alamat }}, Kecamatan {{ $wisata->kecamatan->nama_kecamatan }}, {{ $wisata->region->nama_region }}, Jawa Tengah</li>

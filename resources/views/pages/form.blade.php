@@ -110,7 +110,7 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="control-label col-md-3 col-sm-3 ">Alamat</label>
+									<label class="control-label col-md-3 col-sm-3 ">Alamat<span class="required">*</span></label>
 									<div class="col-md-9 col-sm-9 ">
 										<textarea class="resizable_textarea form-control" placeholder="Masukkan Alamat"></textarea>
 									</div>

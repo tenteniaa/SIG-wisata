@@ -22,7 +22,6 @@ use App\Http\Controllers\DashboardController;
 
 Route::name('dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::get('/form', function () {
         return view('pages/form', ['title' => 'Form']);
     })->name('form');
@@ -47,3 +46,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/geotagging', function () {
     return view('pages/geotagging', ['title' => 'Geotagging']);
 });
+
+// Route::get('/form', [FormController::class, 'index'])->name('index');
+
+// Route::name('forms.')->group(function () {
+//     Route::get('/', [FormController::class, 'index'])->name('form');
+//     Route::get('/form-index', [FormController::class, 'show'])->name('detail');
+// });

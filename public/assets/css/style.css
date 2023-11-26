@@ -1305,9 +1305,20 @@ a:hover, a:focus {
 .top_nav .dropdown-menu li {
   width: 100%; }
 
-.dropdown-item {
-  width: 100%;
-  padding: 12px 20px; }
+.dropdown-usermenu {
+  max-width: 150px;
+}
+
+.dropdown-usermenu a {
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2A3F54;
+}
+
+.dropdown-usermenu a i {
+  color: #2A3F54;
+}
 
 .top_nav li a i {
   font-size: 15px; }
@@ -5058,6 +5069,70 @@ ul.notifications {
   background-color:#fff;
   border-radius: 36px;
 }
-.filter-title {
+
+/* Filter */
+.legend-filter .filter-title {
   font-size: 18px;
+}
+.legend-filter .legend-list {
+  padding: 0;
+}
+.legend-filter p {
+  font-size: 15px;
+}
+.legend-filter li {
+  display: block;
+  height: 25px;
+  clear: both;
+  margin-bottom: 5px;
+}
+.legend-filter li:hover {
+  background: rgba(239, 239, 239, 0.8);
+}
+.legend-filter li:hover .filter-check {
+  display: block;
+}
+.legend-filter .color-name {
+  float: left;
+}
+.legend-filter .color-code {
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #d1d1d1;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.legend-filter .legend-name {
+  display: inline-block;
+  text-transform: capitalize;
+}
+.legend-filter .filter-check {
+  /* display: none; */
+  float: right;
+}
+.legend-filter .filter-check input {
+  margin-top: 40%;
+}
+.legend-filter .color-code.fa-ban {
+  border: none;
+  font-size: 30px;
+  color: #ccc;
+  height: auto;
+}
+.legend-filter .air-terminals {
+  background: #e58c8c;
+}
+.legend-filter .generic-models {
+  background: #1e5e81;
+}
+.legend-filter .plumbing-fixtures {
+  background: #936e6e;
+}
+.legend-filter .roofs {
+  background: #cdd13c;
+}
+.legend-filter .stairs {
+  background: #3bb6f8;
 }

@@ -14,8 +14,6 @@
     <link href="{{ asset('assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{ asset('assets/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- Datatables -->
     <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
@@ -51,8 +49,6 @@
     <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- iCheck -->
-    <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- ECharts -->
     <script src="{{ asset('assets/vendors/echarts/dist/echarts.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/echarts/map/js/world.js') }}"></script>

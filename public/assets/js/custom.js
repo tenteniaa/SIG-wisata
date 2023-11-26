@@ -180,20 +180,6 @@ $(document).ready(function () {
 });
 // /Tooltip
 
-// iCheck
-$(document).ready(function () {
-    if ($("input.flat")[0]) {
-        $(document).ready(function () {
-            $('input.flat').iCheck({
-                checkboxClass: 'icheckbox_flat-green',
-                radioClass: 'iradio_flat-green'
-            });
-        });
-    }
-});
-// /iCheck
-
-
 //hover and retain popover when on popover content
 var originalLeave = $.fn.popover.Constructor.prototype.leave;
 $.fn.popover.Constructor.prototype.leave = function (obj) {

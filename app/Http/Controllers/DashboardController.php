@@ -23,6 +23,9 @@ class DashboardController extends Controller
         $wisata_alam = JenisWisata::where('id_jenis', 1)->count();
         $wisata_sejarah = JenisWisata::where('id_jenis', 2)->count();
         $wisata_hiburan = JenisWisata::where('id_jenis', 3)->count();
+        $alam = JenisWisata::where('id_jenis', 1)->get();
+        $sejarah = JenisWisata::where('id_jenis', 2)->get();
+        $hiburan = JenisWisata::where('id_jenis', 3)->get();
 
         // User
         $user = User::all();
@@ -45,7 +48,10 @@ class DashboardController extends Controller
                 'wisata_alam',
                 'wisata_sejarah',
                 'wisata_hiburan',
-                'user'
+                'user',
+                'alam',
+                'sejarah',
+                'hiburan'
             )
         );
     }

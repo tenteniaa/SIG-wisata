@@ -11,18 +11,6 @@ class Wisata extends Model
     protected $table = 'wisata';
     protected $guarded = [];
 
-    public function jenis_wisata()
-    {
-        return $this->hasMany(JenisWisata::class, 'id_wisata');
-    }
-    public function region()
-    {
-        return $this->belongsTo(Region::class, 'id_region', 'id');
-    }
-    public function kecamatan()
-    {
-        return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id');
-    }
     protected $fillable = [
         'nama',
         'jenis', 
@@ -35,8 +23,22 @@ class Wisata extends Model
         'sosmed', 
         'kontak', 
         'latitude', 
-        'longtitude', 
+        'longitude', 
         'cover', 
         'foto1', 
-        'foto2'];
+        'foto2'
+    ];
+
+    public function jenis_wisata()
+    {
+        return $this->hasMany(JenisWisata::class, 'id_wisata');
+    }
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'id_region', 'id');
+    }
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id');
+    }
 }

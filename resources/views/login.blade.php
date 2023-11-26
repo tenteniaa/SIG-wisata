@@ -66,7 +66,7 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" href="{{route('dashboard.dashboard')}}" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" href="{{route('dashboard')}}" type="submit">Sign in</button>
     <h4 class="mt-3">Don't have an account?<span><a href="{{route('register')}}"> Sign up</a></span></h4>
     <p class="mt-5 mb-3">&copy; Kelompok 7 - 2023</p>
   </form>

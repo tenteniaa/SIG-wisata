@@ -19,7 +19,7 @@
           @auth
           <li class="dropdown btn-login"><a href="#">{{ Auth::user()->name }} <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ route('dashboard.dashboard') }}">Dashboard <i class="bx bxs-dashboard"></i></a></li>
+              <li><a href="{{ route('dashboard') }}">Dashboard <i class="bx bxs-dashboard"></i></a></li>
               <li><a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout <i class="bi bi-power"></i></a></li>
             </ul>
           </li>

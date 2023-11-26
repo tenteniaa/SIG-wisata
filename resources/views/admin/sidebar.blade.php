@@ -24,9 +24,8 @@
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
       <div class="menu_section">
         <ul class="nav side-menu">
-          <li><a href="{{ route('dashboard.dashboard') }}"><i class="fa fa-home"></i> Dashboard</a></li>
+          <li><a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('wisata.view') }}"><i class="fa fa-map-marker"></i> Wisata</a></li>
-          <li><a href="{{ route('wisata.create') }}"><i class="fa fa-map-marker"></i> Form Wisata</a></li>
         </ul>
       </div>
       <div class="menu_section">
@@ -48,7 +47,7 @@
       <a data-toggle="tooltip" data-placement="top" title="Lock">
         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+      <a data-toggle="tooltip" data-placement="top" title="Logout">
         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
       </a>
     </div>

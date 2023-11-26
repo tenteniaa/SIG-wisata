@@ -1429,8 +1429,9 @@ section {
   --bs-btn-disabled-border-color: #5f76e8;
 }
 
-.table-col, .table-name,
-.table-address, .table-act {
+.table-col, 
+.table-name,
+.table-act {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1441,10 +1442,6 @@ section {
 }
 
 .table-name {
-  max-width: 130px;
-}
-
-.table-address {
   max-width: 130px;
 }
 

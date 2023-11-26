@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wisata;
+use App\Models\Jenis;
 use App\Models\JenisWisata;
 use App\Models\Region;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,72 +42,136 @@ class WisataController extends Controller
         
         return view('pages.detail', compact('title', 'wisata'));
     }
+
     public function view()
     {
-        $wisata = Wisata::latest()->paginate(5);
+        $title = 'Daftar Wisata';
+        $wisata = Wisata::latest()->get();
       
-        return view('pages.view',compact('wisata'))
-            ->with('i', (request()->input('wisata', 1) - 1) * 5);
+        return view('form.view', compact('wisata', 'title'));
     }
+
     public function create()
     {
-        return view('pages.create');
+        $title = 'Tambah Wisata';
+        $jenis = Jenis::all();
+        $region = Region::all();
+        $kecamatan = Kecamatan::all();
+
+        return view('form.create', compact('title', 'jenis', 'region', 'kecamatan'));
     }
 
     public function store(Request $request)
     {
-	DB::table('wisata')->insert([
-		'nama' =>  $request->nama,
-		'jenis' =>  $request->jenis,
-		'harga' =>  $request->harga,
-		'id_region' =>  $request->id_region,
-        'id_kecamatan' =>  $request->id_kecamatan,
-		'alamat' =>  $request->alamat,
-		'deskripsi' =>  $request->deskripsi,
-		'fasilitas' =>  $request->fasilitas,
-        'sosmed' =>  $request->sosmed,
-		'contact' =>  $request->contact,
-		'latitude' =>  $request->latitude,
-		'longtitude' =>  $request->longtitude,
-        'cover' =>  $request->cover,
-		'foto1' =>  $request->foto1,
-		'foto2' =>  $request->foto2,
-	]);
-
-	return redirect()->route('wisata.view')
-                        ->with('success','Wisata created successfully.');
- 
-    }
-
-    public function edit(Wisata $wisata)
-    {
-        return view('pages.edit',compact('wisata'));
-    }
-
-    public function update(Request $request, Wisata $wisata)
-    {
-        $request->validate([
+        $validatedData = $request->validate([
             'nama' => 'required',
-            'jenis' => 'required',
             'harga' => 'required',
             'id_region' => 'required',
             'id_kecamatan' => 'required',
             'alamat' => 'required',
-            'deskripsi' => 'required',
-            'fasilitas' => 'required',
-            'sosmed' => 'required',
-            'contact' => 'required',
+            'deskripsi' => 'nullable',
+            'fasilitas' => 'nullable',
+            'sosmed' => 'nullable',
+            'contact' => 'nullable',
             'latitude' => 'required',
-            'longtitude' => 'required',
-            'cover' => 'required',
-            'foto1' => 'required',
-            'foto2' => 'required',
+            'longitude' => 'required',
+            'cover' => 'nullable',
+            'foto1' => 'nullable',
+            'foto2' => 'nullable',
+            'id_jenis' => 'required',
         ]);
+
+        // Simpan data ke tabel 'wisata'
+        $wisata = new Wisata($validatedData);
+        $wisata->save();
+
+        // Simpan multiple 'id_jenis' di tabel 'jenis_wisata'
+        foreach ($validatedData['id_jenis'] as $idJenis) {
+            $jenisWisata = new JenisWisata([
+                'id_jenis' => $idJenis,
+            ]);
+
+            $wisata->jenis_wisata()->save($jenisWisata);
+        }
+
+        return redirect()->route('wisata.view')->with('success', 'Wisata berhasil disimpan');
+    }
+
+    public function edit($id)
+    {
+        $title = 'Edit Wisata';
+        $wisata = Wisata::find($id);
+        $jenis = Jenis::all();
+        $selectedJenis = $wisata->jenis_wisata->pluck('id_jenis')->toArray();
+        $region = Region::all();
+        $kecamatan = Kecamatan::all();
+
+        return view('form.edit', compact('title', 'wisata', 'jenis', 'selectedJenis', 'region', 'kecamatan'));
+    }
+
+    // public function update(Request $request, Wisata $wisata)
+    // {
+    //     $request->validate([
+    //         'nama' => 'required',
+    //         'harga' => 'required',
+    //         'id_region' => 'required',
+    //         'id_kecamatan' => 'required',
+    //         'alamat' => 'required',
+    //         'deskripsi' => 'nullable',
+    //         'fasilitas' => 'nullable',
+    //         'sosmed' => 'nullable',
+    //         'contact' => 'nullable',
+    //         'latitude' => 'required',
+    //         'longitude' => 'required',
+    //         'cover' => 'nullable',
+    //         'foto1' => 'nullable',
+    //         'foto2' => 'nullable',
+    //     ]);
       
-        $wisata->update($request->all());
+    //     $wisata->update($request->all());
       
-        return redirect()->route('wisata.view')
-                        ->with('success','Wisata updated successfully');
+    //     return redirect()->route('wisata.view')
+    //                     ->with('success','Wisata berhasil diubah');
+    // }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'harga' => 'required',
+            'id_region' => 'required',
+            'id_kecamatan' => 'required',
+            'alamat' => 'required',
+            'deskripsi' => 'nullable',
+            'fasilitas' => 'nullable',
+            'sosmed' => 'nullable',
+            'contact' => 'nullable',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'cover' => 'nullable',
+            'foto1' => 'nullable',
+            'foto2' => 'nullable',
+            'id_jenis' => 'required',
+        ]);
+
+        // Gunakan fill untuk mengisi model Wisata dengan data yang valid
+        $wisata = Wisata::findOrFail($id);
+        $wisata->fill($validatedData);
+        $wisata->save();
+
+        // Hapus semua entri JenisWisata yang terkait dengan wisata ini
+        $wisata->jenis_wisata()->delete();
+
+        // Simpan kembali multiple 'id_jenis' di tabel 'jenis_wisata'
+        foreach ($validatedData['id_jenis'] as $idJenis) {
+            $jenisWisata = new JenisWisata([
+                'id_jenis' => $idJenis,
+            ]);
+
+            $wisata->jenis_wisata()->save($jenisWisata);
+        }
+
+        return redirect()->route('wisata.view')->with('success', 'Wisata berhasil diupdate');
     }
 
     public function destroy(Wisata $wisata)
@@ -113,6 +179,6 @@ class WisataController extends Controller
         $wisata->delete();
        
         return redirect()->route('wisata.view')
-                        ->with('success','wisata deleted successfully');
+                        ->with('success','Wisata berhasil dihapus');
     }
 }

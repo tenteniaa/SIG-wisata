@@ -23,4 +23,20 @@ class Wisata extends Model
     {
         return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id');
     }
+    protected $fillable = [
+        'nama',
+        'jenis', 
+        'harga', 
+        'id_region', 
+        'id_kecamatan', 
+        'alamat', 
+        'deskripsi', 
+        'fasilitas', 
+        'sosmed', 
+        'kontak', 
+        'latitude', 
+        'longtitude', 
+        'cover', 
+        'foto1', 
+        'foto2'];
 }

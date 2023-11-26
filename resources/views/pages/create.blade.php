@@ -1,26 +1,13 @@
 @extends('admin.layout')
-@section('main') 
-
-	<!-- page content -->
-	<div class="right_col" role="main">
-		<div class="">
-			<div class="page-title">
-				<div class="title_left">
-					<h3>Form Data Wisata</h3>
-				</div>
-
-				<div class="title_right">
-					<div class="col-md-5 col-sm-5  form-group pull-right top_search">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search for...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">Go!</button>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
+ 
+@section('main')
+    <div class="right_col" role="main">
+        
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 				<div class="col-md-12 col-sm-12 ">
 					<div class="x_panel">
 						<div class="x_title">
@@ -35,8 +22,10 @@
 						</div>
 						<div class="x_content">
 							<br />
-							<form class="form-horizontal form-label-left">
 
+						<form action="{{ route('wisata.store') }}" method="POST">
+							@csrf
+							<form class="form-horizontal form-label-left">
 								<div class="form-group row ">
 									<label class="control-label col-md-3 col-sm-3 ">Nama<span class="required">*</span></label>
 									<div class="col-md-9 col-sm-9 ">
@@ -66,7 +55,7 @@
 								<div class="form-group row">
 									<label class="control-label col-md-3 col-sm-3 ">Harga<span class="required">*</span></label>
 									<div class="col-md-9 col-sm-9 ">
-										<input type="biginteger" class="form-control" placeholder="Masukkan Harga">
+										<input type="number" class="form-control" placeholder="Masukkan Harga">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -138,21 +127,20 @@
 									<form method="post" enctype="multipart/form-data" action="uploadproses.php">
 									<div class="col-md-9 col-sm-9 ">
 									<Input type="file" name="gambar">
-									{{-- <input type="submit" value="upload"> --}}
+									<input type="submit" value="upload">
 									</div>
 								</form>
 								</div>
-								
 								<div class="ln_solid"></div>
 								<div class="form-group">
 									<div class="col-md-9 col-sm-9  offset-md-3">
-										<button type="button" class="btn btn-primary">Cancel</button>
-										<button type="reset" class="btn btn-primary">Reset</button>
-										<button type="submit" class="btn btn-success">Submit</button>
+										<input type="submit" class="btn btn-success"></button>
 									</div>
 								</div>
 
 							</form>
+						</form>
+							
 						</div>
 					</div>
 				</div>
@@ -162,7 +150,7 @@
 
 	
 		</div>
-	</div>
+	</form>
 	<!-- /page content -->
 
 @endsection

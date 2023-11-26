@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +23,22 @@ use App\Http\Controllers\DashboardController;
 
 Route::name('dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/form', function () {
-        return view('pages/form', ['title' => 'Form']);
-    })->name('form');
+    // Route::get('/form', function () {
+    //     return view('pages/form', ['title' => 'Form']);
+    // })->name('form');
 });
 
 Route::name('wisata.')->group(function () {
     Route::get('/', [WisataController::class, 'index'])->name('home');
     Route::get('/wisata-detail/{id}', [WisataController::class, 'show'])->name('detail');
+    Route::get('/wisata-view', [WisataController::class, 'view'])->name('view');
+    Route::get('/wisata-create', [WisataController::class, 'create'])->name('create');
+    Route::get('/wisata-destroy', [WisataController::class, 'destroy'])->name('destroy');
+    Route::get('/wisata-edit', [WisataController::class, 'edit'])->name('edit');
+    Route::post('/wisata-store', [WisataController::class, 'store'])->name('store');
+    Route::get('/wisata-update', [WisataController::class, 'update'])->name('update');
+
+
 });
 
 // Login
@@ -53,3 +62,5 @@ Route::get('/geotagging', function () {
 //     Route::get('/', [FormController::class, 'index'])->name('form');
 //     Route::get('/form-index', [FormController::class, 'show'])->name('detail');
 // });
+
+Route::resource('index', WisataController::class);

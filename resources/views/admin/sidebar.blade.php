@@ -25,8 +25,6 @@
       <div class="menu_section">
         <ul class="nav side-menu">
           <li><a href="{{ route('dashboard.dashboard') }}"><i class="fa fa-home"></i> Dashboard</a></li>
-          <li><a href="#"><i class="fa fa-map-marker"></i> Wisata</a></li>
-          <li><a href="{{ route('dashboard.form') }}"><i class="fa fa-home"></i>Form Data Wisata</a></li>
           <li><a href="{{ route('wisata.view') }}"><i class="fa fa-map-marker"></i> Wisata</a></li>
           <li><a href="{{ route('wisata.create') }}"><i class="fa fa-map-marker"></i> Form Wisata</a></li>
         </ul>

@@ -231,12 +231,66 @@ h6 {
   margin-left: 30px;
   border-radius: 50px;
   color: #fff;
+  max-width: 200px;
 }
 
 .navbar .btn-login:hover,
 .navbar .btn-login:focus:hover {
   color: #2C4054;
   background: #CADDFF;
+}
+
+.navbar .dropdown:hover {
+  background: #3498db;
+}
+
+.navbar .dropdown a {
+  padding: 5px 0 5px 5px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.navbar .dropdown ul li {
+  min-width: 130px;
+  margin: 5px 0;
+}
+
+.navbar .dropdown ul a {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: var(--base-color);
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #1acc8d;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
 }
 
 /**
@@ -284,7 +338,7 @@ h6 {
   position: absolute;
   top: 55px;
   right: 15px;
-  bottom: 500px;
+  bottom: 250px;
   left: 15px;
   padding: 10px 0;
   border-radius: 8px;
@@ -312,7 +366,47 @@ h6 {
 
 .navbar-mobile .btn-login,
 .navbar-mobile .btn-login:focus {
+  max-width: 100%;
   margin: 15px;
+}
+
+.navbar-mobile .dropdown a,
+.navbar-mobile .dropdown a:hover {
+  color: #fff;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  color: #1acc8d;
+}
+
+.navbar-mobile .dropdown>.dropdown-active {
+  display: block;
 }
 
 /*--------------------------------------------------------------
@@ -1456,51 +1550,15 @@ section {
 .legend .air-terminals {
   background: #e58c8c;
 }
-.legend .casework {
-  background: #e5c28c;
-}
-.legend .ceilings {
-  background: #e3e58c;
-}
-.legend .curtain-panels {
-  background: #8ce58e;
-}
-.legend .curtain-wall-mullions {
-  background: #8cc6e5;
-}
-.legend .doors {
-  background: #b84a4a;
-}
-.legend .electrical-equipment {
-  background: #936b2e;
-}
-.legend .floors {
-  background: #8a8d2a;
-}
-.legend .furniture-systems {
-  background: #258127;
-}
 .legend .generic-models {
   background: #1e5e81;
 }
 .legend .plumbing-fixtures {
   background: #936e6e;
 }
-.legend .railings {
-  background: #b0823b;
-}
 .legend .roofs {
   background: #cdd13c;
 }
-.legend .specialty-equipment {
-  background: #6be36e;
-}
 .legend .stairs {
   background: #3bb6f8;
-}
-.legend .walls {
-  background: #e92c2c;
-}
-.legend .windows {
-  background: #ea9d26;
 }

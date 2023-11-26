@@ -21,7 +21,7 @@ use App\Http\Controllers\DashboardController;
 // })->middleware('auth'); 
 
 Route::name('dashboard.')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth'); 
     Route::get('/form', function () {
         return view('pages/form', ['title' => 'Form']);
     })->name('form');

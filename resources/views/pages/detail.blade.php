@@ -60,12 +60,6 @@
             <div class="portfolio-info">
               <h3>{{ $wisata->nama }}</h3>
               <ul>
-                <li>
-                  <strong>Jenis</strong>: 
-                  @foreach($wisata->jenis_wisata as $item)
-                  {{ $item->jenis->nama_jenis }}@if (!$loop->last), @endif
-                  @endforeach
-                </li>
                 <li><strong>Alamat</strong>: {{ $wisata->alamat }}, Kecamatan {{ $wisata->kecamatan->nama_kecamatan }}, {{ $wisata->region->nama_region }}, Jawa Tengah</li>
                 <li><strong>Harga </strong>(mulai dari) : Rp {{ number_format($wisata->harga, 0, ',', '.') }}</li>
                 <li><strong>Kontak</strong>: 
@@ -132,6 +126,7 @@
   L.marker([latitude, longitude])
       .addTo(map)
       .bindPopup(popupContent);
-      // console.log(@json($wisata))
+  
+  map.addControl(new L.Control.Fullscreen());
 </script>
 @endpush

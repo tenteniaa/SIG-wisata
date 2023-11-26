@@ -96,15 +96,15 @@
                           <ul class="legend-list">
                             <li>
                                 <div class="color-name"><span class="color-code stairs"></span>
-                                  <p class="legend-name">Kota Semarang</p>
+                                  <p class="legend-name">Kabupaten Semarang</p>
                                 </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-id_region="2"></div>
+                                <div class="filter-check"><input type="checkbox" id="checkbox_region_1"></div>
                             </li>
                             <li>
                                 <div class="color-name"><span class="color-code generic-models"></span>
-                                  <p class="legend-name">Kabupaten Semarang</p>
+                                  <p class="legend-name">Kota Semarang</p>
                                 </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-id_region="1"></div>
+                                <div class="filter-check"><input type="checkbox" id="checkbox_region_2"></div>
                             </li>
                           </ul>
                         </div>
@@ -112,45 +112,26 @@
                         <div class="col-md-12 col-sm-12 mt-4 legend">
                           <h4 class="filter-title">Kategori</h4>
                           <ul class="legend-list">
-                            {{-- <li>
-                                <div class="color-name">
-                                    <span class="color-code air-terminals"></span>
-                                    <p class="legend-name">Semua</p>
-                                </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-jenis="all" checked="checked"></div>
-                            </li> --}}
-                        
-        
-                            {{-- @foreach($jenis as $item)
-                                <li>
-                                    <div class="color-name">
-                                        <span class="color-code casework"></span>
-                                        <p class="legend-name">{{ $item->nama_jenis }}</p>
-                                    </div>
-                                    <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="{{ $item->id }}" id="checkbox_{{ $item->id }}"></div>
-                                </li>
-                            @endforeach --}}
-
                             <li>
                                 <div class="color-name">
                                     <span class="color-code air-terminals"></span>
                                     <p class="legend-name">Alam</p>
                                 </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="1"></div>
+                                <div class="filter-check"><input type="checkbox" id="checkbox_jenis_1"></div>
                             </li>
                             <li>
                                 <div class="color-name">
-                                    <span class="color-code casework"></span>
+                                    <span class="color-code plumbing-fixtures"></span>
                                     <p class="legend-name">Sejarah/Budaya</p>
                                 </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="2"></div>
+                                <div class="filter-check"><input type="checkbox" id="checkbox_jenis_2"></div>
                             </li>
                             <li>
                                 <div class="color-name">
                                     <span class="color-code roofs"></span>
                                     <p class="legend-name">Hiburan</p>
                                 </div>
-                                <div class="filter-check"><input type="checkbox" class="flat" data-id_jenis="3"></div>
+                                <div class="filter-check"><input type="checkbox" id="checkbox_jenis_3"></div>
                             </li>
                           </ul>
                         </div>
@@ -342,21 +323,153 @@
 
 @push('scripts')
 <script>
-    var map = L.map('map').setView([-7.08777, 110.36230], 10); // Set default view
+function initializeMap() {
+    var map = L.map('map').setView([-7.08777, 110.36230], 10);
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
     }).addTo(map);
-  
-    // Loop through each Wisata data and add a marker to the map
-    @foreach($wisata as $item)
-        var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
-        L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
-            .addTo(map)
-            .bindPopup(popupContent);
-            // console.log("Added marker for {{ $item->nama }}");
-    @endforeach
+
+    var filteredMarkers = [];
+    var polygon;
+
+    function clearFilteredMarkers() {
+        // Hapus semua marker yang ada di filteredMarkers
+        filteredMarkers.forEach(function (marker) {
+            map.removeLayer(marker);
+        });
+
+        // Kosongkan array filteredMarkers
+        filteredMarkers = [];
+    }
+
+    function toggleMarkers() {
+         // Hapus polygon jika sudah ada sebelumnya
+        if (polygon) {
+            map.removeLayer(polygon);
+        }
+    
+        clearFilteredMarkers();
+
+        var filteredLatLngs = [];
+
+        if (
+            !document.getElementById('checkbox_jenis_1').checked &&
+            !document.getElementById('checkbox_jenis_2').checked &&
+            !document.getElementById('checkbox_jenis_3').checked &&
+            !document.getElementById('checkbox_region_1').checked &&
+            !document.getElementById('checkbox_region_2').checked
+        ) {
+            // Jika tidak ada filter yang aktif, tampilkan semua marker
+            @foreach($wisata as $item)
+                var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
+                var marker = L.marker([{{ $item->latitude }}, {{ $item->longitude }}])
+                    .addTo(map)
+                    .bindPopup(popupContent);
+                filteredMarkers.push(marker);
+            @endforeach
+
+        } else {
+            // Jika ada filter yang aktif, terapkan filter dan tampilkan marker sesuai kondisi
+            @foreach($wisata as $item)
+                var showMarker = true;
+
+                // Jenis
+                var jenis1Checked = document.getElementById('checkbox_jenis_1').checked;
+                var jenis2Checked = document.getElementById('checkbox_jenis_2').checked;
+                var jenis3Checked = document.getElementById('checkbox_jenis_3').checked;
+                // Region
+                var region1Checked = document.getElementById('checkbox_region_1').checked;
+                var region2Checked = document.getElementById('checkbox_region_2').checked;
+
+                // Cek apakah jenis sesuai
+                var jenisSesuai = false;
+
+                @foreach($alam as $jenis)
+                    if ({{ $jenis->id_wisata }} === {{ $item->id }} && jenis1Checked) {
+                        jenisSesuai = true;
+                        fillColor = '#e58c8c';
+                        borderColor = '#e58c8c';
+                    }
+                @endforeach
+
+                @foreach($sejarah as $jenis)
+                    if ({{ $jenis->id_wisata }} === {{ $item->id }} && jenis2Checked) {
+                        jenisSesuai = true;
+                        fillColor = '#936e6e';
+                        borderColor = '#936e6e';
+                    }
+                @endforeach
+                
+                @foreach($hiburan as $jenis)
+                    if ({{ $jenis->id_wisata }} === {{ $item->id }} && jenis3Checked) {
+                        jenisSesuai = true;
+                        fillColor = '#cdd13c';
+                        borderColor = '#cdd13c';
+                    }
+                @endforeach
+                
+                // Cek apakah region sesuai
+                var regionSesuai = false;
+                
+                if ({{ $item->id_region }} == 1 && region1Checked) {
+                    regionSesuai = true;
+                    fillColor = '#3bb6f8';
+                    borderColor = '#3bb6f8';
+                }
+
+                if ({{ $item->id_region }} == 2 && region2Checked) {
+                    regionSesuai = true;
+                    fillColor = '#1e5e81';
+                    borderColor = '#1e5e81';
+                }
+            
+                // Tambahkan marker sesuai kondisi
+                if (
+                    (jenis1Checked && jenisSesuai && !region1Checked && !region2Checked) ||
+                    (jenis2Checked && jenisSesuai && !region1Checked && !region2Checked) ||
+                    (jenis3Checked && jenisSesuai && !region1Checked && !region2Checked) ||
+                    (region1Checked && regionSesuai && !jenis1Checked && !jenis2Checked && !jenis3Checked) ||
+                    (region2Checked && regionSesuai && !jenis1Checked && !jenis2Checked && !jenis3Checked) ||
+                    (region1Checked && jenis1Checked && jenisSesuai && regionSesuai) ||
+                    (region1Checked && jenis2Checked && jenisSesuai && regionSesuai) ||
+                    (region1Checked && jenis3Checked && jenisSesuai && regionSesuai) ||
+                    (region2Checked && jenis1Checked && jenisSesuai && regionSesuai) ||
+                    (region2Checked && jenis2Checked && jenisSesuai && regionSesuai) ||
+                    (region2Checked && jenis3Checked && jenisSesuai && regionSesuai)
+                ) {
+                    var latlng = [{{ $item->latitude }}, {{ $item->longitude }}];
+                    var popupContent = @json(view('pages.popup', ['wisata' => $item])->render());
+                    
+                    var marker = L.marker(latlng)
+                        .addTo(map)
+                        .bindPopup(popupContent);
+                    filteredMarkers.push(marker);
+                    filteredLatLngs.push(latlng);
+                }
+
+            @endforeach
+
+            // Polygon
+            if (filteredLatLngs.length > 0) {
+                polygon = L.polygon(filteredLatLngs, { fillColor: fillColor, color: borderColor }).addTo(map);
+                // map.fitBounds(polygon.getBounds());
+            }
+
+        }
+    }
+
+    document.getElementById('checkbox_jenis_1').addEventListener('change', toggleMarkers);
+    document.getElementById('checkbox_jenis_2').addEventListener('change', toggleMarkers);
+    document.getElementById('checkbox_jenis_3').addEventListener('change', toggleMarkers);
+    document.getElementById('checkbox_region_1').addEventListener('change', toggleMarkers);
+    document.getElementById('checkbox_region_2').addEventListener('change', toggleMarkers);
+
+    toggleMarkers();
 
     map.addControl(new L.Control.Fullscreen());
+}
+
+document.addEventListener('DOMContentLoaded', initializeMap);
 </script>
 @endpush

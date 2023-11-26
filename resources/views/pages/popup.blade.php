@@ -10,6 +10,12 @@
             <li>Harga : Rp {{ number_format($wisata->harga, 0, ',', '.') }}</li>
             <li>{{ $wisata->region->nama_region }}, Jawa Tengah</li>
         </ul>
-        <a href="{{route('wisata.detail', $wisata->id)}}" class="more_info"><i class="bi bi-link"></i> More Info</a>
+        @if(request()->is('/'))
+            <a href="{{ route('wisata.detail', $wisata->id) }}" class="more_info"><i class="bi bi-link"></i> More Info</a>
+        @else
+            @if($wisata->sosmed)
+                <a href="{{ $wisata->sosmed }}" target="_blank" class="more_info"><i class="bi bi-link"></i> Kunjungi</a>
+            @endif
+        @endif
     </div>
 </div>

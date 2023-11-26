@@ -122,7 +122,7 @@
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
   }).addTo(map);
-  var popupContent = @json(view('pages.popup-detail', ['wisata' => $wisata])->render());
+  var popupContent = @json(view('pages.popup', ['wisata' => $wisata])->render());
   L.marker([latitude, longitude])
       .addTo(map)
       .bindPopup(popupContent);

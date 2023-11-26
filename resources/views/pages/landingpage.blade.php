@@ -174,7 +174,7 @@
                                                 {{ $me->jenis->nama_jenis }}@if (!$loop->last), @endif
                                                 @endforeach
                                               </td>
-                                              <td class="table-address popover-icon">{{ $item->alamat }}</td>
+                                              <td class="table-name popover-icon">{{ $item->alamat }}</td>
                                               <td class="table-act popover-icon">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                               <td class="table-act">
                                                 <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary">Lihat <i class="fa fa-chevron-right"></i></a>

@@ -49,21 +49,23 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="control-label col-md-3 col-sm-3 ">Region<span class="required">*</span></label></label>
+						<label class="control-label col-md-3 col-sm-3 ">Region<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9">
-							<select name="id_region" class="select2_group form-control">
+							<select id="id_region" name="id_region" class="select2_group form-control">
+								<option value="">Pilih Region</option>
 								@foreach($region as $item)
-									<option value="{{ $item->id }}">{{ $item->nama_region }}</option>
+									<option value="{{ $item->id }}" data-region-id="{{ $item->id }}">{{ $item->nama_region }}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="control-label col-md-3 col-sm-3 ">Kecamatan<span class="required">*</span></label></label>
+						<label class="control-label col-md-3 col-sm-3 ">Kecamatan<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9">
-							<select name="id_kecamatan" class="select2_group form-control">
+							<select id="id_kecamatan" name="id_kecamatan" class="select2_group form-control">
+								<option value="">Pilih Region</option>
 								@foreach($kecamatan as $item)
-									<option value="{{ $item->id }}">{{ $item->nama_kecamatan }}</option>
+									<option value="{{ $item->id }}" data-region-id="{{ $item->id_region }}">{{ $item->nama_kecamatan }}</option>
 								@endforeach
 							</select>
 						</div>
@@ -172,5 +174,27 @@
 		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 	}
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#id_region').on('change', function() {
+            var selectedRegionId = $(this).val();
+
+            $('#id_kecamatan option').each(function() {
+                var kecamatanRegionId = $(this).data('region-id');
+
+                if (kecamatanRegionId == selectedRegionId || selectedRegionId == '') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            $('#id_kecamatan option[value=""]').remove();
+
+            $('#id_kecamatan').val($('#id_kecamatan option[data-region-id="' + selectedRegionId + '"]:first').val());
+        });
+    });
 </script>
 @endpush

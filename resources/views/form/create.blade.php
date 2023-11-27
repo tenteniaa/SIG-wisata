@@ -15,13 +15,19 @@
 						<div id="map" class="demo-placeholder w-100 mb-3"></div>
 						<div class="w-100">
 							<div class="col-md-4 col-sm-4">
-    							<button onclick="locateUser()" class="btn btn-info"><i class="fa fa-crosshairs"></i> Lokasi Saya</button>
+    							<button type="button" onclick="locateUser()" class="btn btn-info"><i class="fa fa-crosshairs"></i> Lokasi Saya</button>
 							</div>
 							<div class="col-md-4 col-sm-4">
 								<input id="latitude" name="latitude" type="text" class="col-12 form-control" placeholder="Latitude" readonly>
+								@error('latitude')
+            				    	<div class="text-danger">{{ $message }}</div>
+            					@enderror
 							</div>
 							<div class="col-md-4 col-sm-4">
 								<input id="longitude" name="longitude" type="text" class="col-12 form-control" placeholder="Longitude" readonly>
+								@error('longitude')
+            				    	<div class="text-danger">{{ $message }}</div>
+            					@enderror
 							</div>
 						</div>
 					</div>
@@ -29,6 +35,9 @@
 						<label class="control-label col-md-3 col-sm-3" for="nama">Nama<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9 ">
 							<input id="nama" name="nama" type="text" class="form-control" placeholder="Masukkan Nama Tempat Wisata">
+							@error('nama')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
@@ -40,12 +49,18 @@
     						        <label>{{ $item->nama_jenis }}</label>
     						    </div>
     						@endforeach
+							@error('id_jenis')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Harga<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9">
 							<input id="harga" name="harga" type="number" class="form-control" placeholder="Masukkan Harga">
+							@error('harga')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
@@ -57,23 +72,32 @@
 									<option value="{{ $item->id }}" data-region-id="{{ $item->id }}">{{ $item->nama_region }}</option>
 								@endforeach
 							</select>
+							@error('id_region')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Kecamatan<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9">
 							<select id="id_kecamatan" name="id_kecamatan" class="select2_group form-control">
-								<option value="">Pilih Region</option>
+								<option value="">Pilih Kecamatan</option>
 								@foreach($kecamatan as $item)
 									<option value="{{ $item->id }}" data-region-id="{{ $item->id_region }}">{{ $item->nama_kecamatan }}</option>
 								@endforeach
 							</select>
+							@error('id_kecamatan')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Alamat<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9 ">
 							<textarea id="alamat" name="alamat" class="resizable_textarea form-control" placeholder="Masukkan Alamat"></textarea>
+							@error('alamat')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
@@ -97,19 +121,22 @@
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Cover<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9 ">
-							<input id="cover" name="cover" type="file" name="gambar">
+							<input id="cover" name="cover" type="file" accept="image/*">
+							@error('cover')
+            				    <div class="text-danger">{{ $message }}</div>
+            				@enderror
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Foto Pilihan</label>
 						<div class="col-md-9 col-sm-9 ">
-							<input id="foto1" name="foto1" type="file" name="gambar">
+							<input id="foto1" name="foto1" type="file" accept="image/*">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Foto Pilihan</label>
 						<div class="col-md-9 col-sm-9 ">
-							<input id="foto2" name="foto2" type="file" name="gambar">
+							<input id="foto2" name="foto2" type="file" accept="image/*">
 						</div>
 					</div>
 					
@@ -117,7 +144,7 @@
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 offset-md-3">
 							<a href="{{ route('wisata.view') }}" type="button" class="btn btn-primary">Cancel</a>
-							<input type="submit" value="Save" class="btn btn-success">
+							<input type="submit" class="btn btn-success">
 						</div>
 					</div>
 				</form>				
@@ -165,6 +192,12 @@
 				.bindPopup("Lokasi Saya").openPopup();
 
 			L.circle(e.latlng, radius).addTo(map);
+
+			map.setView(e.latlng, 16);
+
+			// Update nilai input dengan data latitude dan longitude
+			document.getElementById('latitude').value = e.latlng.lat;
+    		document.getElementById('longitude').value = e.latlng.lng;
 		}
 
 		function onLocationError(e) {

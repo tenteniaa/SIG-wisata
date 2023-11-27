@@ -14,7 +14,6 @@ class WisataController extends Controller
 {
     public function index(){
         $title = 'Sistem Informasi Geografis Wisata';
-        // $wisata = Wisata::oldest()->paginate(10)->withQueryString();
         $wisata = Wisata::latest()->get();
         $jumlah_wisata = Wisata::count();
 
@@ -75,15 +74,36 @@ class WisataController extends Controller
             'contact' => 'nullable',
             'latitude' => 'required',
             'longitude' => 'required',
-            'cover' => 'nullable',
-            'foto1' => 'nullable',
-            'foto2' => 'nullable',
+            'cover' => 'required|image',
+            'foto1' => 'nullable|image',
+            'foto2' => 'nullable|image',
             'id_jenis' => 'required',
         ]);
 
+        // cover
+        $coverName = time().'.'.$request->cover->extension();
+        $request->cover->move(public_path('assets/images/wisata/'), $coverName);
+
         // Simpan data ke tabel 'wisata'
         $wisata = new Wisata($validatedData);
+        $wisata->cover = $coverName;
         $wisata->save();
+
+        // foto1
+        if ($request->hasFile('foto1')) {
+            $foto1Name = time().'.'.$request->foto1->extension();
+            $request->foto1->move(public_path('assets/images/wisata/'), $foto1Name);
+            $wisata->foto1 = $foto1Name;
+            $wisata->save();
+        }
+
+        // foto2
+        if ($request->hasFile('foto2')) {
+            $foto2Name = time().'.'.$request->foto2->extension();
+            $request->foto2->move(public_path('assets/images/wisata/'), $foto2Name);
+            $wisata->foto2 = $foto2Name;
+            $wisata->save();
+        }
 
         // Simpan multiple 'id_jenis' di tabel 'jenis_wisata'
         foreach ($validatedData['id_jenis'] as $idJenis) {
@@ -131,6 +151,28 @@ class WisataController extends Controller
 
         $wisata = Wisata::findOrFail($id);
         $wisata->fill($validatedData);
+
+        // cover
+        if ($request->hasFile('cover')) {
+            $coverName = time().'.'.$request->cover->extension();
+            $request->cover->move(public_path('assets/images/wisata/'), $coverName);
+            $wisata->cover = $coverName;
+        }
+
+        // foto1
+        if ($request->hasFile('foto1')) {
+            $foto1Name = time().'.'.$request->foto1->extension();
+            $request->foto1->move(public_path('assets/images/wisata/'), $foto1Name);
+            $wisata->foto1 = $foto1Name;
+        }
+
+        // foto2
+        if ($request->hasFile('foto2')) {
+            $foto2Name = time().'.'.$request->foto2->extension();
+            $request->foto2->move(public_path('assets/images/wisata/'), $foto2Name);
+            $wisata->foto2 = $foto2Name;
+        }
+
         $wisata->save();
 
         // Hapus semua entri JenisWisata yang terkait dengan wisata ini

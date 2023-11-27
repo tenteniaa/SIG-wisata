@@ -786,11 +786,6 @@ function init_DataTables() {
             { orderable: false, targets: [0] }
         ]
     });
-    $datatable.on('draw.dt', function () {
-        $('checkbox input').iCheck({
-            checkboxClass: 'icheckbox_flat-green'
-        });
-    });
 
     TableManageButtons.init();
 

@@ -15,8 +15,4 @@ class Jenis extends Model
     {
         return $this->hasMany(JenisWisata::class);
     }
-    // public function wisata()
-    // {
-    //     return $this->hasMany(Wisata::class);
-    // }
 }

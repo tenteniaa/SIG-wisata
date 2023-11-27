@@ -101,19 +101,28 @@
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Cover<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9 ">
-							<input value="{{ $wisata->cover }}" id="cover" name="cover" type="file" name="gambar">
+							<input value="{{ $wisata->cover }}" id="cover" name="cover" type="file" accept="image/*">
+							@if($wisata->cover)
+        					    <img src="{{ asset('assets/images/wisata/' . $wisata->cover) }}" alt="Cover Image" style="max-width: 200px;">
+							@endif
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Foto Pilihan</label>
 						<div class="col-md-9 col-sm-9 ">
-							<input value="{{ $wisata->foto1 }}" id="foto1" name="foto1" type="file" name="gambar">
+							<input value="{{ $wisata->foto1 }}" id="foto1" name="foto1" type="file" accept="image/*">
+							@if($wisata->foto1)
+        					    <img src="{{ asset('assets/images/wisata/' . $wisata->foto1) }}" alt="Image" style="max-width: 200px;">
+        					@endif
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="control-label col-md-3 col-sm-3 ">Foto Pilihan</label>
 						<div class="col-md-9 col-sm-9 ">
-							<input value="{{ $wisata->foto2 }}" id="foto2" name="foto2" type="file" name="gambar">
+							<input value="{{ $wisata->foto2 }}" id="foto2" name="foto2" type="file" accept="image/*">
+							@if($wisata->foto2)
+        					    <img src="{{ asset('assets/images/wisata/' . $wisata->foto2) }}" alt="Image" style="max-width: 200px;">
+        					@endif
 						</div>
 					</div>
 					

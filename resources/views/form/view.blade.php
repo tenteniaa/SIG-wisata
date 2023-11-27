@@ -21,7 +21,7 @@
                       </div>
                     @endif
 
-                      <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+                      <table id="default_order" class="table border table-striped table-bordered text-nowrap">
                           <thead>
                               <tr>
                                   <th>Nama</th>

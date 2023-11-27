@@ -285,10 +285,10 @@
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/team-3.jpg') }}"
+                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/fia.jpg') }}"
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>William Anderson</h4>
+                                <h4>Alifia Prastiwi</h4>
                                 <span>CTO</span>
                                 <div class="social">
                                     <a href=""><i class="bi bi-instagram"></i></a>

@@ -24,7 +24,7 @@ Route::name('wisata.')->group(function () {
     Route::get('/wisata-detail/{id}', [WisataController::class, 'show'])->name('detail');
     Route::get('/wisata-view', [WisataController::class, 'view'])->name('view');
     Route::get('/wisata-create', [WisataController::class, 'create'])->name('create');
-    Route::post('/wisata-destroy', [WisataController::class, 'destroy'])->name('destroy');
+    Route::post('/wisata-destroy/{id}', [WisataController::class, 'destroy'])->name('destroy');
     Route::get('/wisata-edit/{id}', [WisataController::class, 'edit'])->name('edit');
     Route::post('/wisata-store', [WisataController::class, 'store'])->name('store');
     Route::post('/wisata-update/{id}', [WisataController::class, 'update'])->name('update');

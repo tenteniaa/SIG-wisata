@@ -109,31 +109,6 @@ class WisataController extends Controller
         return view('form.edit', compact('title', 'wisata', 'jenis', 'selectedJenis', 'region', 'kecamatan'));
     }
 
-    // public function update(Request $request, Wisata $wisata)
-    // {
-    //     $request->validate([
-    //         'nama' => 'required',
-    //         'harga' => 'required',
-    //         'id_region' => 'required',
-    //         'id_kecamatan' => 'required',
-    //         'alamat' => 'required',
-    //         'deskripsi' => 'nullable',
-    //         'fasilitas' => 'nullable',
-    //         'sosmed' => 'nullable',
-    //         'contact' => 'nullable',
-    //         'latitude' => 'required',
-    //         'longitude' => 'required',
-    //         'cover' => 'nullable',
-    //         'foto1' => 'nullable',
-    //         'foto2' => 'nullable',
-    //     ]);
-      
-    //     $wisata->update($request->all());
-      
-    //     return redirect()->route('wisata.view')
-    //                     ->with('success','Wisata berhasil diubah');
-    // }
-
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -154,7 +129,6 @@ class WisataController extends Controller
             'id_jenis' => 'required',
         ]);
 
-        // Gunakan fill untuk mengisi model Wisata dengan data yang valid
         $wisata = Wisata::findOrFail($id);
         $wisata->fill($validatedData);
         $wisata->save();
@@ -174,11 +148,19 @@ class WisataController extends Controller
         return redirect()->route('wisata.view')->with('success', 'Wisata berhasil diupdate');
     }
 
-    public function destroy(Wisata $wisata)
+    public function destroy($id)
     {
+        $wisata = Wisata::find($id);
+    
+        if (!$wisata) {
+            return redirect()->route('wisata.view')->with('error', 'Wisata tidak ditemukan');
+        }
+    
+        // Hapus entri di tabel JenisWisata yang terkait
+        $wisata->jenis_wisata()->delete();
+        // Hapus entri di tabel Wisata
         $wisata->delete();
-       
-        return redirect()->route('wisata.view')
-                        ->with('success','Wisata berhasil dihapus');
+    
+        return redirect()->route('wisata.view')->with('success', 'Wisata berhasil dihapus');
     }
 }

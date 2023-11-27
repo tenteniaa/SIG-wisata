@@ -2,13 +2,6 @@
 @section('main')
 
 <div class="right_col" role="main">
-        
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
 	<div class="col-md-12 col-sm-12">
 		<div class="x_panel">
 			<div class="x_title">
@@ -60,7 +53,9 @@
 						<div class="col-md-9 col-sm-9">
 							<select name="id_region" class="select2_group form-control">
 								@foreach($region as $item)
-									<option value="{{ $item->id }}">{{ $item->nama_region }}</option>
+									<option value="{{ $item->id }}" {{ $item->id == $wisata->id_region ? 'selected' : '' }}>
+										{{ $item->nama_region }}
+									</option>
 								@endforeach
 							</select>
 						</div>
@@ -70,7 +65,9 @@
 						<div class="col-md-9 col-sm-9">
 							<select name="id_kecamatan" class="select2_group form-control">
 								@foreach($kecamatan as $item)
-									<option value="{{ $item->id }}">{{ $item->nama_kecamatan }}</option>
+									<option value="{{ $item->id }}" {{ $item->id == $wisata->id_kecamatan ? 'selected' : '' }}>
+										{{ $item->nama_kecamatan }}
+									</option>
 								@endforeach
 							</select>
 						</div>

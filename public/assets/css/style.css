@@ -1415,7 +1415,8 @@ input.parsley-error, textarea.parsley-error, select.parsley-error {
 
 /* alerts */
 .alert p {
-  font-size: 25px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .alert-success {

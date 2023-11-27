@@ -2,13 +2,6 @@
 @section('main')
 
 <div class="right_col" role="main">
-        
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
 	<div class="col-md-12 col-sm-12">
 		<div class="x_panel">
 			<div class="x_title">

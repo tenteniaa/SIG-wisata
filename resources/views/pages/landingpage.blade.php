@@ -258,7 +258,7 @@
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Tenia Febrianti</h4>
-                                <span>Chief Executive Officer</span>
+                                <span>Fullstack Developer</span>
                                 <div class="social">
                                     <a href="https://www.linkedin.com/in/teniafebrianti/" target="_blank"><i class="bi bi-linkedin"></i></a>
                                     <a href="https://tenteniaa.netlify.app/" target="_blank"><i class="bi bi-link"></i></a>
@@ -274,10 +274,11 @@
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Sabrina Desy Rahmawati</h4>
-                                <span>Product Manager</span>
+                                <span>UI/UX Designer</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/sabrina-desy-rahmawati-a8214a240/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://medium.com/@sabrinadrah" target="_blank"><i class="bi bi-medium"></i></a>
+                                    <a href="https://www.instagram.com/sabrinadr._/" target="_blank"><i class="bi bi-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -289,10 +290,11 @@
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Alifia Prastiwi</h4>
-                                <span>CTO</span>
+                                <span>UI/UX Designer</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/alifiaprastiwi/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://medium.com/@alifia1209" target="_blank"><i class="bi bi-medium"></i></a>
+                                    <a href="https://www.instagram.com/alifiaprr_/" target="_blank"><i class="bi bi-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -300,14 +302,15 @@
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/team-4.jpg') }}"
+                            <div class="pic"><img src="{{ asset('assets/images/landingpage/team/nora.jpg') }}"
                                     class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
+                                <h4>Alfina Nurul Azizah</h4>
+                                <span>Fullstack Developer</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/alfinanora/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.instagram.com/alfina_nora/" target="_blank"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://github.com/alfinanora" target="_blank"><i class="bi bi-github"></i></a>
                                 </div>
                             </div>
                         </div>

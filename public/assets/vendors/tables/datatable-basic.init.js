@@ -15,7 +15,7 @@ $('#zero_config').DataTable();
  ****************************************/
 $('#default_order').DataTable({
     "order": [
-        [16, "desc"]
+        [1, "asc"]
     ]
 });
 

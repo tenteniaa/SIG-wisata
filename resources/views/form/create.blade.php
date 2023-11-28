@@ -159,7 +159,7 @@
 <script>
 	var map = L.map('map').setView([-6.98403, 110.40956], 14);
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '© OpenStreetMap'
+		attribution: '© OpenStreetMap contributors'
 	}).addTo(map);
 
 	var marker;

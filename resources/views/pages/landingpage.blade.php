@@ -330,7 +330,7 @@ function initializeMap() {
     var map = L.map('map').setView([-7.08777, 110.36230], 10);
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
+        attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     var filteredMarkers = [];

@@ -148,7 +148,7 @@
 
     var map = L.map('map').setView([initialLatitude, initialLongitude], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
+        attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     var marker;

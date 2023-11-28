@@ -65,9 +65,11 @@
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close">x</button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
           </div>
-          <div class="modal-body">Yakin ingin menghapus data wisata?</div>
+          <div class="modal-body">Yakin ingin menghapus data wisata <span style="font-weight: 700">{{ Str::limit($item->nama, 30) }}</span>?</div>
           <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
               <form action="{{ route('wisata.destroy', $item->id) }}" method="POST">

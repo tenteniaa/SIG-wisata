@@ -143,9 +143,9 @@ class WisataController extends Controller
             'contact' => 'nullable',
             'latitude' => 'required',
             'longitude' => 'required',
-            'cover' => 'required|image',
-            'foto1' => 'nullable|image',
-            'foto2' => 'nullable|image',
+            'cover' => 'nullable',
+            'foto1' => 'nullable',
+            'foto2' => 'nullable',
             'id_jenis' => 'required',
         ]);
 

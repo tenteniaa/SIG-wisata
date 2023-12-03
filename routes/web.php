@@ -4,7 +4,6 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +21,12 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::name('wisata.')->group(function () {
     Route::get('/', [WisataController::class, 'index'])->name('home');
     Route::get('/wisata-detail/{id}', [WisataController::class, 'show'])->name('detail');
-    Route::get('/wisata-view', [WisataController::class, 'view'])->name('view');
-    Route::get('/wisata-create', [WisataController::class, 'create'])->name('create');
-    Route::post('/wisata-destroy/{id}', [WisataController::class, 'destroy'])->name('destroy');
-    Route::get('/wisata-edit/{id}', [WisataController::class, 'edit'])->name('edit');
-    Route::post('/wisata-store', [WisataController::class, 'store'])->name('store');
-    Route::post('/wisata-update/{id}', [WisataController::class, 'update'])->name('update');
+    Route::get('/wisata-view', [WisataController::class, 'view'])->name('view')->middleware('auth');
+    Route::get('/wisata-create', [WisataController::class, 'create'])->name('create')->middleware('auth');
+    Route::post('/wisata-destroy/{id}', [WisataController::class, 'destroy'])->name('destroy')->middleware('auth');
+    Route::get('/wisata-edit/{id}', [WisataController::class, 'edit'])->name('edit')->middleware('auth');
+    Route::post('/wisata-store', [WisataController::class, 'store'])->name('store')->middleware('auth');
+    Route::post('/wisata-update/{id}', [WisataController::class, 'update'])->name('update')->middleware('auth');
 });
 
 // Login

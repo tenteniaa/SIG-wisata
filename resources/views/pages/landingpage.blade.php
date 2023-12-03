@@ -19,14 +19,14 @@
                             ToeJoe menyajikan pendekatan yang holistik, menggabungkan kekayaan data geografis
                             dengan informasi detail tentang tempat-tempat menarik.</p>
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon"><i class="bx bxs-landmark"></i></div>
+                            <div class="icon"><i class="bi bi-buildings"></i></div>
                             <h4 class="title"><a href="#">Memperkaya Pengalaman Pariwisata</a></h4>
                             <p class="description">ToeJoe tidak hanya memberikan informasi lokasi, tetapi juga memperkaya
                                 pengalaman wisata dengan menyuguhkan informasi yang detail.</p>
                         </div>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="icon"><i class="bx bx-devices"></i></div>
+                            <div class="icon"><i class="bi bi-phone"></i></div>
                             <h4 class="title"><a href="#">Kemudahan Akses Informasi</a></h4>
                             <p class="description">Antarmuka yang intuitif memastikan akses mudah ke berbagai informasi
                                 wisata.</p>
@@ -155,14 +155,14 @@
                           </div>
                           <div class="x_content">
                               <div class="table-responsive">
-                                  <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+                                  <table id="zero_config" class="table table-striped text-nowrap">
                                       <thead>
                                           <tr>
                                               <th>Nama</th>
                                               <th class="popover-icon">Jenis</th>
-                                              <th class="popover-icon">Alamat</th>
                                               <th class="popover-icon">Harga</th>
-                                              <th>Aksi</th>
+                                              <th class="popover-icon">Alamat</th>
+                                              <th class="text-center">Aksi</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -174,9 +174,9 @@
                                                 {{ $me->jenis->nama_jenis }}@if (!$loop->last), @endif
                                                 @endforeach
                                               </td>
-                                              <td class="table-name popover-icon">{{ $item->alamat }}</td>
                                               <td class="table-act popover-icon">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                              <td class="table-act">
+                                              <td class="table-name popover-icon">{{ $item->alamat }}</td>
+                                              <td class="table-act text-center">
                                                 <a href="{{route('wisata.detail', $item->id)}}" class="btn btn-rounded btn-primary">Lihat <i class="fa fa-chevron-right"></i></a>
                                               </td>
                                           </tr>
@@ -231,10 +231,10 @@
                 <div class="swiper-slide">
                     <div class="testimonial-item">
                         <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            <i class="bi bi-quote quote-icon-left"></i>
                             Peta bukan hanya gambar, tapi jendela ke dunia. 
                             SIG membuka pintu untuk menjelajahi dunia yang tersembunyi di balik peta.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            <i class="bi bi-quote quote-icon-right"></i>
                         </p>
                     </div>
                 </div>

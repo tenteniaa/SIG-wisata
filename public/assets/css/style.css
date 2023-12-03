@@ -1730,7 +1730,6 @@ textarea:focus {
 }
 
 /* Tables */
-.table-col, 
 .table-names,
 .table-act {
   overflow: hidden;
@@ -1739,7 +1738,13 @@ textarea:focus {
 }
 
 .table-col {
-  max-width: 100px;
+  max-width: 70px;
+}
+
+@media (max-width: 992px) {
+  .table-col {
+    max-width: 200px;
+  }
 }
 
 .table-names {

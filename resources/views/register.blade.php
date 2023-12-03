@@ -39,7 +39,7 @@
 <main class="form-signin">
   <form action="{{ route('register') }}" method="POST">
       @csrf
-      <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="68" height="57">
+      <img class="mb-4" src="{{url('/')}}/assets/images/logo.png" alt="Logo" width="55" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
     <div class="form-floating">

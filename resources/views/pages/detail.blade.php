@@ -115,6 +115,24 @@
 
 @push('scripts')
 <script>
+  function navigateToCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+          // Mendapatkan koordinat lokasi saat ini
+          var currentLatitude = position.coords.latitude;
+          var currentLongitude = position.coords.longitude;
+          // Membuat URL navigasi OSM dengan koordinat saat ini sebagai titik awal (from)
+          var osmNavigationUrl = 'https://www.openstreetmap.org/directions?engine=osrm_car&route=' +
+              currentLatitude + '%2C' + currentLongitude + '%3B' + {{ $wisata->latitude }} + '%2C' + {{ $wisata->longitude }};
+          
+          window.open(osmNavigationUrl, '_blank');
+      },
+      function (error) {
+          console.error('Error getting current location:', error);
+      }
+    );
+  }
+  
   var latitude = {{ $wisata->latitude }};
   var longitude = {{ $wisata->longitude }};
   var map = L.map('map').setView([latitude, longitude], 14);

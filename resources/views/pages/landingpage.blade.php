@@ -85,7 +85,7 @@
 
                 <div class="row content">
                     <h3 data-aos="fade-up">Sebaran <span>Tempat Wisata</span> di Kota Semarang dan Kabupaten Semarang</h3>
-                    <div class="col-md-3 mt-5 order-1 order-md-2 filter-by pt-2" data-aos="fade-left">
+                    <div class="col-md-3 mt-2 order-1 order-md-2 filter-by pt-2" data-aos="fade-left">
                         <div class="layers">
                           <h2><i class="fa fa-filter"></i> Filters by</h2>
                           <div class="clearfix"></div>
@@ -136,7 +136,7 @@
                           </ul>
                         </div>
                     </div>
-                    <div class="col-md-9 mt-5 order-2 order-md-1" data-aos="fade-up">
+                    <div class="col-md-9 mt-2 order-2 order-md-1" data-aos="fade-up">
                         <div id="map" class="maps__container">
                             {{-- OpenStreetMaps --}}
                         </div>

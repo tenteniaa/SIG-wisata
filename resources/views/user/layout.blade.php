@@ -35,6 +35,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/landingpage.css') }}" rel="stylesheet">
+
+  @stack('css')
+  
 </head>
 
 <body>

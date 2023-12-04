@@ -23,6 +23,9 @@
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    @stack('css')
+
   </head>
 
   <body class="nav-md">

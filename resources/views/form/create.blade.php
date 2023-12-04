@@ -58,6 +58,7 @@
 						<label class="control-label col-md-3 col-sm-3 ">Harga<span class="required">*</span></label>
 						<div class="col-md-9 col-sm-9">
 							<input id="harga" name="harga" type="number" class="form-control" placeholder="Masukkan Harga">
+							<div id="formattedHarga"></div>
 							@error('harga')
             				    <div class="text-danger">{{ $message }}</div>
             				@enderror
@@ -210,6 +211,18 @@
 </script>
 
 <script>
+	// Fungsi untuk format angka menjadi format IDR
+	function formatIDR(angka) {
+        return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(angka);
+    }
+
+    $('#harga').on('input', function () {
+        var inputValue = $(this).val();
+
+        $('#formattedHarga').text(formatIDR(inputValue));
+    });
+
+	// Pilih Kecamatan berdasarkan Id Region
     $(document).ready(function() {
         $('#id_region').on('change', function() {
             var selectedRegionId = $(this).val();

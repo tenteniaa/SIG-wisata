@@ -121,7 +121,7 @@
           </div>
 
           <div class="col-md-6 col-sm-6 ">
-            <div class="x_panel tile fixed_height_350 overflow_hidden">
+            <div class="x_panel fixed_height_350">
               <div class="x_title">
                 <h2>Kategori Wisata</h2>
                 <div class="nav navbar-right panel_toolbox">

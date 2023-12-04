@@ -45,7 +45,7 @@ class WisataController extends Controller
     public function view()
     {
         $title = 'Daftar Wisata';
-        $wisata = Wisata::latest()->get();
+        $wisata = Wisata::orderBy('updated_at', 'desc')->get();
       
         return view('form.view', compact('wisata', 'title'));
     }
@@ -81,7 +81,7 @@ class WisataController extends Controller
         ]);
 
         // cover
-        $coverName = time().'.'.$request->cover->extension();
+        $coverName = uniqid('cover_') . '.' . $request->cover->extension();
         $request->cover->move(public_path('assets/images/wisata/'), $coverName);
 
         // Simpan data ke tabel 'wisata'
@@ -91,7 +91,7 @@ class WisataController extends Controller
 
         // foto1
         if ($request->hasFile('foto1')) {
-            $foto1Name = time().'.'.$request->foto1->extension();
+            $foto1Name = uniqid('foto1_') . '.' . $request->foto1->extension();
             $request->foto1->move(public_path('assets/images/wisata/'), $foto1Name);
             $wisata->foto1 = $foto1Name;
             $wisata->save();
@@ -99,7 +99,7 @@ class WisataController extends Controller
 
         // foto2
         if ($request->hasFile('foto2')) {
-            $foto2Name = time().'.'.$request->foto2->extension();
+            $foto2Name = uniqid('foto2_') . '.' . $request->foto2->extension();
             $request->foto2->move(public_path('assets/images/wisata/'), $foto2Name);
             $wisata->foto2 = $foto2Name;
             $wisata->save();
@@ -154,21 +154,21 @@ class WisataController extends Controller
 
         // cover
         if ($request->hasFile('cover')) {
-            $coverName = time().'.'.$request->cover->extension();
+            $coverName = uniqid('cover_') . '.' . $request->cover->extension();
             $request->cover->move(public_path('assets/images/wisata/'), $coverName);
             $wisata->cover = $coverName;
         }
 
         // foto1
         if ($request->hasFile('foto1')) {
-            $foto1Name = time().'.'.$request->foto1->extension();
+            $foto1Name = uniqid('foto1_') . '.' . $request->foto1->extension();
             $request->foto1->move(public_path('assets/images/wisata/'), $foto1Name);
             $wisata->foto1 = $foto1Name;
         }
 
         // foto2
         if ($request->hasFile('foto2')) {
-            $foto2Name = time().'.'.$request->foto2->extension();
+            $foto2Name = uniqid('foto2_') . '.' . $request->foto2->extension();
             $request->foto2->move(public_path('assets/images/wisata/'), $foto2Name);
             $wisata->foto2 = $foto2Name;
         }

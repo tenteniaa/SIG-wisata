@@ -15,8 +15,8 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Datatables -->
-    <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
     <!-- Leaflet -->
     <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet'/>
@@ -53,13 +53,11 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- ECharts -->
-    <script src="{{ asset('assets/vendors/echarts/dist/echarts.min.js') }}"></script>
-    <!-- Chart.js -->
-    <script src="{{ asset('assets/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.2.0/echarts.min.js"></script>
     <!-- Datatables -->
-    <script src="{{ asset('assets/vendors/tables/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/tables/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/tables/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatable-basic.init.js') }}"></script>
     <!-- Skycons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"></script>
     <!-- Leaflet -->

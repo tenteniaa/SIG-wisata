@@ -25,7 +25,7 @@
                                 pengalaman wisata dengan menyuguhkan informasi yang detail.</p>
                         </div>
 
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
                             <div class="icon"><i class="bi bi-phone"></i></div>
                             <h4 class="title"><a href="#">Kemudahan Akses Informasi</a></h4>
                             <p class="description">Antarmuka yang intuitif memastikan akses mudah ke berbagai informasi

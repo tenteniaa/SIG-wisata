@@ -26,8 +26,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" rel="stylesheet">
 
   <!-- Datatables -->
-  <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendors/tables/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendors/datatables.net-bs4/css/responsive.dataTables.min.css') }}" rel="stylesheet">
   
   <!-- Leaflet -->
   <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
@@ -60,9 +60,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
   <!-- Datatables -->
-  <script src="{{ asset('assets/vendors/tables/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('assets/vendors/tables/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
-  <script src="{{ asset('assets/vendors/tables/datatable-basic.init.js') }}"></script>
+  <script src="{{ asset('assets/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/datatable-basic.init.js') }}"></script>
   <!-- Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>

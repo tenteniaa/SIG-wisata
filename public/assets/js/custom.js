@@ -239,20 +239,6 @@ function init_skycons() {
 
 }
 
-function init_charts() {
-
-    console.log('run_charts  typeof [' + typeof (Chart) + ']');
-
-    if (typeof (Chart) === 'undefined') { return; }
-
-    console.log('init_charts');
-
-
-    Chart.defaults.global.legend = {
-        enabled: false
-    };
-}
-
 /* COMPOSE */
 
 function init_compose() {
@@ -348,20 +334,10 @@ function init_DataTables() {
 
 };
 
-/* ECHRTS */
-
-function init_echarts() {
-
-    if (typeof (echarts) === 'undefined') { return; }
-    console.log('init_echarts');
-}
-
 
 $(document).ready(function () {
 
     init_sidebar();
-    init_charts();
-    init_echarts();
     init_skycons();
     init_DataTables();
     init_compose();

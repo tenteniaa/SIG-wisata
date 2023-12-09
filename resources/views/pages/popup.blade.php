@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 
-    @push('css')
     <style>
         .popup_content {
             background: #ffffff;
@@ -56,7 +55,6 @@
             margin-right: 3px;
         }
     </style>
-    @endpush
 </head>
 <body>
     <div class="popup_content">

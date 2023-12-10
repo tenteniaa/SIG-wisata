@@ -1,7 +1,7 @@
 {
     "version": 2,
     "builds": [
-        { "src": "/api/index.php", "use": "vercel-php@0.3.1" },
+        { "src": "/api/index.php", "use": "vercel-php@latest" },
         { "src": "/public/**", "use": "@vercel/static" }
     ],
     "routes": [
@@ -11,7 +11,8 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/api/index.php"
+            "dest": "/api/index.php",
+            "functions": { "api/index.php": { "runtime": "vercel-php@latest", "memory": 1024 } }
         }
     ],
     "env": {

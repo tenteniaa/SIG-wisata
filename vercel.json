@@ -11,8 +11,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/api/index.php",
-            "functions": { "api/index.php": { "runtime": "vercel-php@latest", "memory": 1024 } }
+            "dest": "/api/index.php"
         }
     ],
     "env": {

@@ -1,7 +1,11 @@
 {
     "version": 2,
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+    },
+    "outputDirectory": "public",
     "builds": [
-        { "src": "/api/index.php", "use": "vercel-php@latest" },
+        { "src": "/api/index.php", "use": "vercel-php@0.6.0" },
         { "src": "/public/**", "use": "@vercel/static" }
     ],
     "routes": [
@@ -28,6 +32,10 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+        "SESSION_DRIVER": "cookie",
+
+        "DB_CONNECTION": "mysql",
+        "DB_PORT": "3306",
+        "MYSQL_ATTR_SSL_CA": "/etc/pki/tls/certs/ca-bundle.crt"
     }
 }

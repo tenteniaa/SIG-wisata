@@ -205,8 +205,20 @@
         return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(angka);
     }
 
-    var inputValue = $('#harga').val();
-    $('#formattedHarga').text(formatIDR(inputValue));
+  	// memperbarui tampilan mata uang
+  	function updateFormattedValue(inputId, formattedId) {
+  	    var inputValue = $(inputId).val();
+  	    var formattedValue = formatIDR(inputValue);
+  	    $(formattedId).text(formattedValue);
+  	}
+
+  	// menginisialisasi tampilan mata uang
+  	updateFormattedValue('#harga', '#formattedHarga');
+
+  	// saat nilai input berubah
+  	$('#harga').on('input', function() {
+  	    updateFormattedValue('#harga', '#formattedHarga');
+  	});
 
 	// Pilih Kecamatan berdasarkan Id Region
     $(document).ready(function() {
